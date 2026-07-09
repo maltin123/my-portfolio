@@ -259,7 +259,7 @@ export default function Contact() {
     hover:border-lime-300
     hover:-translate-y-1
     transition-all
-    duration-300
+    duration-280
     "
             >
               <FaTelegram />
