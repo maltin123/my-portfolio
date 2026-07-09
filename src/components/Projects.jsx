@@ -1,43 +1,8 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { projects } from "../data/projects";
 
 export default function Projects() {
-  const projects = [
-    {
-      title: "Digital Banking App",
-      category: "UI / UX Design",
-      image: "/projects/banking.png",
-      description:
-        "A modern banking experience focused on simplicity, usability and clean interaction.",
-      tags: ["UX Research", "UI Design", "Prototype"],
-    },
-
-    {
-      title: "E-Commerce Platform",
-      category: "Web Design",
-      image: "/projects/ecommerce.png",
-      description:
-        "Designing a seamless shopping experience with intuitive user flow.",
-      tags: ["Wireframe", "Design System", "Figma"],
-    },
-
-    {
-      title: "Dashboard System",
-      category: "Product Design",
-      image: "/projects/dashboard.png",
-      description: "A scalable dashboard interface for data-driven products.",
-      tags: ["UI Design", "React", "Components"],
-    },
-
-    {
-      title: "Warehouse Management System",
-      category: "UI / UX Design",
-      image: "/projects/warehouse.png",
-      description:
-        "A modern warehouse management solution focused on efficiency and usability.",
-      tags: ["UX Research", "UI Design", "Prototype"],
-    },
-  ];
-
   return (
     <section
       id="projects"
@@ -49,12 +14,7 @@ export default function Projects() {
       py-32
       "
     >
-      <div
-        className="
-      max-w-6xl
-      mx-auto
-      "
-      >
+      <div className="max-w-6xl mx-auto">
         <p
           className="
           text-lime-300
@@ -142,8 +102,9 @@ hover:shadow-[0_0_35px_rgba(163,230,53,0.15)]
                 />
 
                 {/* Hover Overlay */}
-
-                <div
+                <Link
+                  to={`/case-study/${project.slug}`}
+                  onClick={() => sessionStorage.setItem("scrollY", window.scrollY)}
                   className="
     absolute
     inset-0
@@ -157,7 +118,7 @@ hover:shadow-[0_0_35px_rgba(163,230,53,0.15)]
     group-hover/image:opacity-100
     "
                 >
-                  <button
+                  <span
                     className="
       px-6
       py-3
@@ -170,11 +131,10 @@ hover:shadow-[0_0_35px_rgba(163,230,53,0.15)]
       "
                   >
                     View Case Study →
-                  </button>
-                </div>
+                  </span>
+                </Link>
 
                 {/* Glow */}
-
                 <div
                   className="
     absolute

@@ -37,6 +37,10 @@ export default {
             opacity: "0",
           },
         },
+        "spin-slow": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
       },
 
       animation: {
@@ -44,6 +48,7 @@ export default {
 
         float: "float 5s ease-in-out infinite",
         wave: "wave 5s infinite ease-out",
+        "spin-slow": "spin-slow 8s linear infinite",
       },
     },
   },

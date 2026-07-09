@@ -76,7 +76,7 @@ export default function Contact() {
         >
           Let's create
           <br />
-          something
+          something{" "}
           <motion.span
             className="text-lime-300 inline-block"
             initial={{ scale: 0, rotate: -10 }}
@@ -84,7 +84,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ ...wordSpring, delay: 0.6 }}
           >
-            {" "}amazing.
+            amazing.
           </motion.span>
         </motion.h2>
         <motion.p
