@@ -1,77 +1,64 @@
 import { useEffect, useState } from "react";
+
 export default function Navbar() {
   const [active, setActive] = useState("about");
+  const [scrolled, setScrolled] = useState(false);
+
   useEffect(() => {
     const sections = document.querySelectorAll("section");
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id);
-          }
+          if (entry.isIntersecting) setActive(entry.target.id);
         });
       },
-      {
-        threshold: 0.5,
-      },
+      { threshold: 0.5 },
     );
-
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
-
-    return () => {
-      sections.forEach((section) => {
-        observer.unobserve(section);
-      });
-    };
+    sections.forEach((section) => observer.observe(section));
+    return () => sections.forEach((section) => observer.unobserve(section));
   }, []);
-  const links = [
-    {
-      name: "About",
-      href: "about",
-    },
-    {
-      name: "Skills",
-      href: "skills",
-    },
-    {
-      name: "Projects",
-      href: "projects",
-    },
-    {
-      name: "Contact",
-      href: "contact",
-    },
-  ];
-  return (
-    <nav className="fixed top-0 left-0 w-full z-50">
-      <div className="max-w-7xl mx-auto px-8 py-6 flex justify-between items-center">
-        {/* Logo */}
-        <a
-          href="#home"
-          className="text-2xl font-bold tracking-widest text-white"
-        >
-          MAN
-        </a>
 
-        {/* Menu */}
-        <div className="flex gap-10">
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const links = [
+    { name: "About", href: "about" },
+    { name: "Skills", href: "skills" },
+    { name: "Projects", href: "projects" },
+    { name: "Contact", href: "contact" },
+  ];
+
+  return (
+    <nav
+      className={`
+        fixed top-0 left-0 w-full z-50
+        transition-all duration-500
+        ${scrolled ? "bg-neutral-950/70 backdrop-blur-xl border-b border-white/10" : "bg-transparent border-b border-transparent"}
+      `}
+    >
+      <div className="max-w-7xl mx-auto px-8 py-4 flex justify-between items-center">
+        <a href="#home">
+          <img src="/M.svg" alt="logo" className="h-9 w-auto" />
+        </a>
+        <div className="flex gap-8">
           {links.map((link) => (
             <a
               key={link.href}
               href={`#${link.href}`}
               className={`
-transition
-duration-300
-
-${active === link.href ? "text-lime-300" : "text-white/70"}
-
-hover:text-lime-300
-`}
+                relative text-sm font-medium tracking-wide
+                transition-colors duration-300
+                ${active === link.href ? "text-lime-300" : "text-white/60"}
+                hover:text-lime-300
+              `}
             >
               {link.name}
+              {active === link.href && (
+                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-lime-300" />
+              )}
             </a>
           ))}
         </div>

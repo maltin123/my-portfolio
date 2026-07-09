@@ -6,6 +6,9 @@ import {
   FaTelegram,
 } from "react-icons/fa";
 
+const bounceSpring = { type: "spring", stiffness: 400, damping: 8 };
+const wordSpring = { type: "spring", stiffness: 300, damping: 6 };
+
 export default function Contact() {
   return (
     <section
@@ -21,8 +24,6 @@ export default function Contact() {
   items-center
   "
     >
-      {/* Background Glow */}
-
       <div
         className="
         absolute
@@ -38,7 +39,6 @@ export default function Contact() {
         pointer-events-none
         "
       />
-
       <div
         className="
         relative
@@ -49,17 +49,10 @@ export default function Contact() {
         "
       >
         <motion.p
-          initial={{
-            opacity: 0,
-            y: 30,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
+          initial={{ opacity: 0, y: 30, scale: 0.9 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ ...bounceSpring, delay: 0.1 }}
           className="
           text-lime-300
           uppercase
@@ -70,20 +63,10 @@ export default function Contact() {
           Contact
         </motion.p>
         <motion.h2
-          initial={{
-            opacity: 0,
-            y: 40,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            duration: 0.7,
-          }}
+          initial={{ opacity: 0, y: 60, scale: 0.8 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ ...bounceSpring, delay: 0.25 }}
           className="
           text-5xl
           md:text-7xl
@@ -94,21 +77,21 @@ export default function Contact() {
           Let's create
           <br />
           something
-          <span className="text-lime-300"> amazing.</span>
+          <motion.span
+            className="text-lime-300 inline-block"
+            initial={{ scale: 0, rotate: -10 }}
+            whileInView={{ scale: 1, rotate: 0 }}
+            viewport={{ once: true }}
+            transition={{ ...wordSpring, delay: 0.6 }}
+          >
+            {" "}amazing.
+          </motion.span>
         </motion.h2>
         <motion.p
-          initial={{
-            opacity: 0,
-          }}
-          whileInView={{
-            opacity: 1,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            delay: 0.3,
-          }}
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ ...bounceSpring, delay: 0.45 }}
           className="
           mt-8
           text-white/60
@@ -121,21 +104,10 @@ export default function Contact() {
           opportunities.
         </motion.p>
         <motion.div
-          initial={{
-            opacity: 0,
-            y: 30,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            delay: 0.5,
-            duration: 0.6,
-          }}
+          initial={{ opacity: 0, y: 50, scale: 0.9 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ ...bounceSpring, delay: 0.65 }}
           className="
   mt-12
   flex
@@ -144,10 +116,10 @@ export default function Contact() {
   gap-8
   "
         >
-          {/* Main Button */}
-
-          <a
+          <motion.a
             href="mailto:your@email.com"
+            whileHover={{ scale: 1.08, rotate: [-1, 1, -1, 1, 0] }}
+            whileTap={{ scale: 0.92 }}
             className="
     px-10
     py-4
@@ -158,112 +130,40 @@ export default function Contact() {
     transition-all
     duration-300
     hover:bg-lime-200
-    hover:scale-105
     hover:shadow-[0_0_30px_rgba(163,230,53,0.4)]
     "
           >
             Let's Talk →
-          </a>
+          </motion.a>
 
-          {/* Social Icons */}
-
-          <div
-            className="
-  flex
-  gap-5
-  "
-          >
-            <a
-              href="#"
-              className="
-    w-12
-    h-12
-    rounded-full
-    border
-    border-white/20
-    flex
-    items-center
-    justify-center
-    text-white/70
-    text-xl
-    hover:text-lime-300
-    hover:border-lime-300
-    hover:-translate-y-1
-    transition-all
-    duration-300
-    "
-            >
-              <FaFacebook />
-            </a>
-
-            <a
-              href="#"
-              className="
-    w-12
-    h-12
-    rounded-full
-    border
-    border-white/20
-    flex
-    items-center
-    justify-center
-    text-white/70
-    text-xl
-    hover:text-lime-300
-    hover:border-lime-300
-    hover:-translate-y-1
-    transition-all
-    duration-300
-    "
-            >
-              <FaLinkedin />
-            </a>
-
-            <a
-              href="#"
-              className="
-    w-12
-    h-12
-    rounded-full
-    border
-    border-white/20
-    flex
-    items-center
-    justify-center
-    text-white/70
-    text-xl
-    hover:text-lime-300
-    hover:border-lime-300
-    hover:-translate-y-1
-    transition-all
-    duration-300
-    "
-            >
-              <FaInstagram />
-            </a>
-
-            <a
-              href="#"
-              className="
-    w-12
-    h-12
-    rounded-full
-    border
-    border-white/20
-    flex
-    items-center
-    justify-center
-    text-white/70
-    text-xl
-    hover:text-lime-300
-    hover:border-lime-300
-    hover:-translate-y-1
-    transition-all
-    duration-300
-    "
-            >
-              <FaTelegram />
-            </a>
+          <div className="flex gap-5">
+            {[FaFacebook, FaLinkedin, FaInstagram, FaTelegram].map(
+              (Icon, i) => (
+                <motion.a
+                  key={i}
+                  href="#"
+                  initial={{ opacity: 0, y: 40, rotate: -20 }}
+                  whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ ...wordSpring, delay: 0.8 + i * 0.1 }}
+                  whileHover={{
+                    scale: 1.25,
+                    rotate: [0, -8, 8, -8, 0],
+                    transition: { duration: 0.4 },
+                  }}
+                  className="
+        w-12 h-12 rounded-full
+        border border-white/20
+        flex items-center justify-center
+        text-white/70 text-xl
+        hover:text-lime-300 hover:border-lime-300
+        transition-all duration-300
+        "
+                >
+                  <Icon />
+                </motion.a>
+              ),
+            )}
           </div>
         </motion.div>
       </div>
