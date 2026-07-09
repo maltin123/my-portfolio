@@ -1,0 +1,259 @@
+import { motion } from "framer-motion";
+
+export default function Projects() {
+  const projects = [
+    {
+      title: "Digital Banking App",
+      category: "UI / UX Design",
+      image: "/projects/banking.png",
+      description:
+        "A modern banking experience focused on simplicity, usability and clean interaction.",
+      tags: ["UX Research", "UI Design", "Prototype"],
+    },
+
+    {
+      title: "E-Commerce Platform",
+      category: "Web Design",
+      image: "/projects/ecommerce.png",
+      description:
+        "Designing a seamless shopping experience with intuitive user flow.",
+      tags: ["Wireframe", "Design System", "Figma"],
+    },
+
+    {
+      title: "Dashboard System",
+      category: "Product Design",
+      image: "/projects/dashboard.png",
+      description: "A scalable dashboard interface for data-driven products.",
+      tags: ["UI Design", "React", "Components"],
+    },
+
+    {
+      title: "Warehouse Management System",
+      category: "UI / UX Design",
+      image: "/projects/warehouse.png",
+      description:
+        "A modern warehouse management solution focused on efficiency and usability.",
+      tags: ["UX Research", "UI Design", "Prototype"],
+    },
+  ];
+
+  return (
+    <section
+      id="projects"
+      className="
+      min-h-screen
+      bg-neutral-950
+      text-white
+      px-8
+      py-32
+      "
+    >
+      <div
+        className="
+      max-w-6xl
+      mx-auto
+      "
+      >
+        <p
+          className="
+          text-lime-300
+          uppercase
+          tracking-[8px]
+          mb-6
+          "
+        >
+          Projects
+        </p>
+
+        <h2
+          className="
+          text-5xl
+          md:text-7xl
+          font-bold
+          "
+        >
+          Selected
+          <span className="text-lime-300"> Works.</span>
+        </h2>
+
+        <div
+          className="
+          grid
+          md:grid-cols-2
+          gap-8
+          mt-20
+          "
+        >
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.title}
+              initial={{
+                opacity: 0,
+                y: 50,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.15,
+              }}
+              className="
+group
+relative
+p-6
+rounded-2xl
+border
+border-white/10
+bg-white/5
+backdrop-blur-md
+transition-all
+duration-500
+hover:border-lime-300/60
+hover:shadow-[0_0_35px_rgba(163,230,53,0.15)]
+"
+            >
+              <div
+                className="
+  relative
+  overflow-hidden
+  rounded-2xl
+  mb-8
+  h-64
+  group/image
+  "
+              >
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="
+    w-full
+    h-full
+    object-cover
+    transition
+    duration-700
+    group-hover/image:scale-110
+    "
+                />
+
+                {/* Hover Overlay */}
+
+                <div
+                  className="
+    absolute
+    inset-0
+    bg-black/60
+    opacity-0
+    flex
+    items-center
+    justify-center
+    transition
+    duration-500
+    group-hover/image:opacity-100
+    "
+                >
+                  <button
+                    className="
+      px-6
+      py-3
+      rounded-full
+      bg-lime-300
+      text-black
+      font-semibold
+      hover:scale-105
+      transition
+      "
+                  >
+                    View Case Study →
+                  </button>
+                </div>
+
+                {/* Glow */}
+
+                <div
+                  className="
+    absolute
+    top-1/2
+    left-1/2
+    -translate-x-1/2
+    -translate-y-1/2
+    w-[600px]
+    h-[600px]
+    bg-lime-300/10
+    blur-[180px]
+    rounded-full
+    animate-pulse
+    pointer-events-none
+    "
+                />
+              </div>
+              <p
+                className="
+              text-lime-300
+              text-sm
+              uppercase
+              tracking-widest
+              "
+              >
+                {project.category}
+              </p>
+
+              <h3
+                className="
+              mt-4
+              text-3xl
+              font-bold
+              "
+              >
+                {project.title}
+              </h3>
+
+              <p
+                className="
+              mt-4
+              text-white/60
+              leading-relaxed
+              "
+              >
+                {project.description}
+              </p>
+
+              <div
+                className="
+              flex
+              flex-wrap
+              gap-3
+              mt-6
+              "
+              >
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="
+px-4
+py-2
+rounded-full
+text-sm
+bg-white/10
+border
+border-white/10
+text-white/70
+backdrop-blur-md
+"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
