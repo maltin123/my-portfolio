@@ -11,51 +11,37 @@ export default function Loader() {
     <motion.div
       initial={{ opacity: 1 }}
       animate={{ opacity: 0 }}
-      transition={{ duration: 0.8, delay: 2.5 }}
+      transition={{ duration: 0.6, delay: 2.2 }}
       onAnimationComplete={() => setShow(false)}
-      className="
-      fixed inset-0 z-[999] bg-neutral-950
-      flex items-center justify-center
-      "
+      className="fixed inset-0 z-[999] bg-neutral-950 flex flex-col items-center justify-center gap-8"
     >
       {/* ambient glow */}
-      <motion.div
-        className="absolute w-[400px] h-[400px] bg-accent-muted blur-[160px] rounded-full pointer-events-none"
-        animate={{ scale: [1, 1.15, 1], opacity: [0.3, 0.6, 0.3] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-      />
+      <div className="absolute w-[400px] h-[400px] bg-accent-muted blur-[160px] rounded-full pointer-events-none" />
 
+      {/* bouncing M */}
       <motion.div
-        initial={{ y: 30, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        className="w-96 relative flex items-center"
+        animate={{ y: [0, -12, 0] }}
+        transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
       >
-        {/* glass track */}
-        <div className="relative w-full h-1.5 bg-white/5 backdrop-blur-md rounded-full border border-white/10 overflow-hidden">
-          {/* progress fill */}
+        <Logo className="h-14 w-auto relative text-white" />
+      </motion.div>
+
+      {/* Google-style bouncing dots */}
+      <div className="flex gap-3">
+        {[0, 1, 2, 3].map((i) => (
           <motion.div
-            className="h-full rounded-full bg-gradient-to-r from-lime-400 via-lime-300 to-cyan-300 relative"
-            initial={{ width: "0%" }}
-            animate={{ width: "100%" }}
-            transition={{ duration: 1.8, ease: "easeInOut" }}
-            style={{
-              boxShadow: "0 0 20px rgba(163,230,53,0.4), 0 0 60px rgba(163,230,53,0.15)",
+            key={i}
+            className="w-2.5 h-2.5 rounded-full bg-accent"
+            animate={{ y: [0, -10, 0], scale: [1, 1.3, 1] }}
+            transition={{
+              duration: 0.8,
+              repeat: Infinity,
+              delay: i * 0.15,
+              ease: "easeInOut",
             }}
           />
-        </div>
-
-        {/* M head */}
-        <motion.div
-          className="absolute -translate-x-1/2 flex items-center justify-center"
-          initial={{ left: "0%" }}
-          animate={{ left: "100%" }}
-          transition={{ duration: 1.8, ease: "easeInOut" }}
-        >
-          <div className="absolute w-12 h-12 bg-accent-muted blur-2xl rounded-full" />
-          <Logo className="h-9 w-auto relative text-white" />
-        </motion.div>
-      </motion.div>
+        ))}
+      </div>
     </motion.div>
   );
 }
