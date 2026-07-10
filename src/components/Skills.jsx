@@ -34,8 +34,8 @@ export default function Skills() {
       relative
       overflow-hidden
       min-h-screen
-      bg-neutral-950
-      text-white
+      bg-body
+      text-body
       px-8
       py-32
       "
@@ -51,7 +51,7 @@ export default function Skills() {
         -translate-y-1/2
         w-[500px]
         h-[500px]
-        bg-lime-300/10
+        bg-accent-muted
         blur-[160px]
         rounded-full
         pointer-events-none
@@ -72,7 +72,7 @@ export default function Skills() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="
-  text-lime-300
+  text-accent
   uppercase
   tracking-[8px]
   mb-6
@@ -92,7 +92,7 @@ export default function Skills() {
   font-bold
   "
         >
-          What I <span className="text-lime-300">Use.</span>
+          What I <span className="text-accent">Use.</span>
         </motion.h2>
 
         <div
@@ -128,8 +128,8 @@ export default function Skills() {
   p-6
   rounded-2xl
   border
-  border-white/10
-  bg-white/5
+  border-subtle
+  bg-glass
   backdrop-blur-md
 "
             >
@@ -139,9 +139,9 @@ export default function Skills() {
     -inset-1
     rounded-2xl
     bg-gradient-to-r
-    from-lime-300/20
+    from-[var(--accent)]/20
     via-transparent
-    to-lime-300/20
+    to-[var(--accent)]/20
     opacity-0
     blur-xl
     group-hover:opacity-100
@@ -155,7 +155,7 @@ export default function Skills() {
   z-10
       text-2xl
       font-bold
-      text-white
+      text-body
     "
               >
                 {skill.title}
@@ -163,7 +163,7 @@ export default function Skills() {
 
               <p
                 className="
-      text-white/60
+      text-muted
       relative
   z-10
       mt-3
@@ -178,7 +178,7 @@ export default function Skills() {
                 <div
                   className="
         h-2
-        bg-white/10
+        bg-glass-hover
         rounded-full
         overflow-hidden
       "
@@ -200,7 +200,7 @@ export default function Skills() {
                     }}
                     className="
             h-full
-            bg-lime-300
+            bg-accent
             rounded-full
           "
                   />
@@ -210,7 +210,7 @@ export default function Skills() {
                   className="
         text-right
         mt-2
-        text-lime-300
+        text-accent
         font-semibold
       "
                 >

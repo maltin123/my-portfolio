@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Logo from "./Logo";
 
 export default function Loader() {
   const [show, setShow] = useState(true);
@@ -19,7 +20,7 @@ export default function Loader() {
     >
       {/* ambient glow */}
       <motion.div
-        className="absolute w-[400px] h-[400px] bg-lime-300/10 blur-[160px] rounded-full pointer-events-none"
+        className="absolute w-[400px] h-[400px] bg-accent-muted blur-[160px] rounded-full pointer-events-none"
         animate={{ scale: [1, 1.15, 1], opacity: [0.3, 0.6, 0.3] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       />
@@ -51,8 +52,8 @@ export default function Loader() {
           animate={{ left: "100%" }}
           transition={{ duration: 1.8, ease: "easeInOut" }}
         >
-          <div className="absolute w-12 h-12 bg-lime-300/20 blur-2xl rounded-full" />
-          <img src="/M.svg" alt="logo" className="h-9 w-auto relative" />
+          <div className="absolute w-12 h-12 bg-accent-muted blur-2xl rounded-full" />
+          <Logo className="h-9 w-auto relative text-white" />
         </motion.div>
       </motion.div>
     </motion.div>

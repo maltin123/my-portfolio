@@ -17,9 +17,9 @@ export default function Contact() {
   relative
   overflow-hidden
   min-h-screen
-  bg-neutral-950
-  text-white
-  px-8
+  bg-body
+text-body
+   px-8
   flex
   items-center
   "
@@ -33,7 +33,7 @@ export default function Contact() {
         -translate-y-1/2
         w-[500px]
         h-[500px]
-        bg-lime-300/10
+        bg-accent-muted
         blur-[180px]
         rounded-full
         pointer-events-none
@@ -54,7 +54,7 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ ...bounceSpring, delay: 0.1 }}
           className="
-          text-lime-300
+          text-accent
           uppercase
           tracking-[8px]
           mb-6
@@ -78,7 +78,7 @@ export default function Contact() {
           <br />
           something{" "}
           <motion.span
-            className="text-lime-300 inline-block"
+            className="text-accent inline-block"
             initial={{ scale: 0, rotate: -10 }}
             whileInView={{ scale: 1, rotate: 0 }}
             viewport={{ once: true }}
@@ -94,7 +94,7 @@ export default function Contact() {
           transition={{ ...bounceSpring, delay: 0.45 }}
           className="
           mt-8
-          text-white/60
+          text-muted
           text-lg
           max-w-2xl
           mx-auto
@@ -124,13 +124,13 @@ export default function Contact() {
     px-10
     py-4
     rounded-full
-    bg-lime-300
-    text-black
+    bg-accent
+    text-body
     font-semibold
     transition-all
     duration-300
-    hover:bg-lime-200
-    hover:shadow-[0_0_30px_rgba(163,230,53,0.4)]
+    hover:bg-accent
+    hover:shadow-accent-glow
     "
           >
             Let's Talk →
@@ -153,10 +153,10 @@ export default function Contact() {
                   }}
                   className="
         w-12 h-12 rounded-full
-        border border-white/20
+        border border-subtle-hover
         flex items-center justify-center
-        text-white/70 text-xl
-        hover:text-lime-300 hover:border-lime-300
+        text-muted text-xl
+        hover:text-accent hover:border-accent
         transition-all duration-300
         "
                 >

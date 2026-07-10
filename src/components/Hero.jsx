@@ -13,25 +13,25 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center pt-20 bg-neutral-950 px-8 overflow-hidden"
+      className="relative min-h-screen flex items-center pt-20 bg-body px-8 overflow-hidden"
     >
       {/* Ripple Effects */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="absolute w-24 h-24 rounded-full bg-lime-300/30 blur-2xl" />
-        <div className="absolute w-[500px] h-[500px] rounded-full bg-gradient-to-r from-lime-300/20 via-cyan-400/20 to-transparent blur-[120px] animate-ambient" />
-        <div className="absolute w-[350px] h-[350px] rounded-full border border-lime-300/20 shadow-[0_0_80px_rgba(163,230,53,0.15)] animate-wave" />
+        <div className="absolute w-24 h-24 rounded-full bg-accent-muted blur-2xl" />
+        <div className="absolute w-[500px] h-[500px] rounded-full bg-gradient-to-r from-[var(--accent)]/20 via-cyan-400/20 to-transparent blur-[120px] animate-ambient" />
+        <div className="absolute w-[350px] h-[350px] rounded-full border border-accent shadow-accent-glow animate-wave" />
         <div
           style={{ animationDelay: "1.5s" }}
           className="absolute w-[550px] h-[550px] rounded-full border border-cyan-300/10 shadow-[0_0_100px_rgba(34,211,238,0.15)] animate-wave"
         />
         <div
           style={{ animationDelay: "3s" }}
-          className="absolute w-[800px] h-[800px] rounded-full border border-lime-300/10 animate-wave"
+          className="absolute w-[800px] h-[800px] rounded-full border border-accent animate-wave"
         />
       </div>
 
       {/* Photo - bottom right */}
-      <div className="absolute bottom-0 right-0 w-80 md:w-[450px] lg:w-[600px] pointer-events-none select-none">
+      <div className="hidden md:block absolute bottom-0 right-0 w-80 md:w-[450px] lg:w-[600px] pointer-events-none select-none">
         <img
           src="/photo.png"
           alt="Man Sitt"
@@ -48,27 +48,27 @@ export default function Hero() {
         `}
       >
         <div className="max-w-2xl">
-          <p className="text-lime-300 uppercase tracking-[8px] mb-6">
+          <p className="text-accent uppercase tracking-[8px] mb-6">
             UI / UX Designer
           </p>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-none text-white mb-8">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-none text-body mb-8">
             It's me
             <br />
-            <span className="text-lime-300">MAN SITT EAIN</span>
+            <span className="text-accent">MAN SITT EAIN</span>
           </h1>
-          <p className="text-xl md:text-2xl text-white/80 font-medium">
+          <p className="text-xl md:text-2xl text-body/80 font-medium">
             Designing Your Digital Experiences
           </p>
-          <p className="mt-8 max-w-xl text-lg text-white/60 leading-relaxed">
+          <p className="mt-8 max-w-xl text-lg text-muted leading-relaxed">
             I create meaningful digital products through user research,
             interaction design and modern interfaces.
           </p>
           <motion.a
-            href="#about"
+            href="#projects"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="inline-block mt-10 px-8 py-4 rounded-full bg-lime-300 text-black font-semibold shadow-[0_0_30px_rgba(163,230,53,0.3)] hover:shadow-[0_0_50px_rgba(163,230,53,0.5)]"
+            className="inline-block mt-10 px-8 py-4 rounded-full bg-accent text-body font-semibold shadow-accent-glow hover:shadow-accent-glow"
           >
             View My Work
           </motion.a>

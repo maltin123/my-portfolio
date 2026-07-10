@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "./context/ThemeContext";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -9,6 +10,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import CursorGlow from "./components/CursorGlow";
 import Loader from "./components/Loader";
+import BackToTop from "./components/BackToTop";
 import CaseStudy from "./pages/CaseStudy";
 
 function Home() {
@@ -35,15 +37,16 @@ function Home() {
 
 export default function App() {
   return (
-    <>
+    <ThemeProvider>
       <Loader />
       <CursorGlow />
+      <BackToTop />
       <div className="relative z-10">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/case-study/:slug" element={<CaseStudy />} />
         </Routes>
       </div>
-    </>
+    </ThemeProvider>
   );
 }

@@ -24,7 +24,7 @@ export default function CursorGlow() {
       }}
       className="fixed top-0 left-0 w-6 h-6 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-50"
     >
-      <div className="w-full h-full rounded-full border-2 border-lime-300" />
+      <div className="w-full h-full rounded-full border-2 border-accent" />
     </motion.div>
   );
 }

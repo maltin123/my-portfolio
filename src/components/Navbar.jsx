@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import ThemeToggle from "./ThemeToggle";
+import Logo from "./Logo";
 
 export default function Navbar() {
   const [active, setActive] = useState("about");
@@ -36,14 +38,14 @@ export default function Navbar() {
       className={`
         fixed top-0 left-0 w-full z-50
         transition-all duration-500
-        ${scrolled ? "bg-neutral-950/70 backdrop-blur-xl border-b border-white/10" : "bg-transparent border-b border-transparent"}
+        ${scrolled ? "bg-[var(--nav-bg)] backdrop-blur-xl border-b border-subtle" : "bg-transparent border-b border-transparent"}
       `}
     >
       <div className="max-w-7xl mx-auto px-8 py-4 flex justify-between items-center">
         <a href="#home">
-          <img src="/M.svg" alt="logo" className="h-9 w-auto" />
+          <Logo className="h-9 w-auto text-body" />
         </a>
-        <div className="flex gap-8">
+        <div className="flex gap-4 md:gap-8">
           {links.map((link) => (
             <a
               key={link.href}
@@ -51,16 +53,19 @@ export default function Navbar() {
               className={`
                 relative text-sm font-medium tracking-wide
                 transition-colors duration-300
-                ${active === link.href ? "text-lime-300" : "text-white/60"}
-                hover:text-lime-300
+                ${active === link.href ? "text-accent" : "text-muted"}
+                hover:text-accent
               `}
             >
               {link.name}
               {active === link.href && (
-                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-lime-300" />
+                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-accent" />
               )}
             </a>
           ))}
+        </div>
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
         </div>
       </div>
     </nav>

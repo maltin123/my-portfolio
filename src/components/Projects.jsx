@@ -8,8 +8,8 @@ export default function Projects() {
       id="projects"
       className="
       min-h-screen
-      bg-neutral-950
-      text-white
+      bg-body
+      text-body
       px-8
       py-32
       "
@@ -17,7 +17,7 @@ export default function Projects() {
       <div className="max-w-6xl mx-auto">
         <p
           className="
-          text-lime-300
+          text-accent
           uppercase
           tracking-[8px]
           mb-6
@@ -34,7 +34,7 @@ export default function Projects() {
           "
         >
           Selected
-          <span className="text-lime-300"> Works.</span>
+          <span className="text-accent"> Works.</span>
         </h2>
 
         <div
@@ -68,14 +68,14 @@ group
 relative
 p-6
 rounded-2xl
-border
-border-white/10
-bg-white/5
-backdrop-blur-md
-transition-all
+  border
+  border-subtle
+  bg-glass
+  backdrop-blur-md
+  transition-all
 duration-500
-hover:border-lime-300/60
-hover:shadow-[0_0_35px_rgba(163,230,53,0.15)]
+hover:border-accent
+hover:shadow-accent-glow
 "
             >
               <div
@@ -108,7 +108,7 @@ hover:shadow-[0_0_35px_rgba(163,230,53,0.15)]
                   className="
     absolute
     inset-0
-    bg-black/60
+    bg-body/60
     opacity-0
     flex
     items-center
@@ -123,8 +123,8 @@ hover:shadow-[0_0_35px_rgba(163,230,53,0.15)]
       px-6
       py-3
       rounded-full
-      bg-lime-300
-      text-black
+      bg-accent
+      text-body
       font-semibold
       hover:scale-105
       transition
@@ -144,7 +144,7 @@ hover:shadow-[0_0_35px_rgba(163,230,53,0.15)]
     -translate-y-1/2
     w-[600px]
     h-[600px]
-    bg-lime-300/10
+    bg-accent-muted
     blur-[180px]
     rounded-full
     animate-pulse
@@ -154,7 +154,7 @@ hover:shadow-[0_0_35px_rgba(163,230,53,0.15)]
               </div>
               <p
                 className="
-              text-lime-300
+              text-accent
               text-sm
               uppercase
               tracking-widest
@@ -176,7 +176,7 @@ hover:shadow-[0_0_35px_rgba(163,230,53,0.15)]
               <p
                 className="
               mt-4
-              text-white/60
+              text-muted
               leading-relaxed
               "
               >
@@ -199,10 +199,10 @@ px-4
 py-2
 rounded-full
 text-sm
-bg-white/10
+bg-glass
 border
-border-white/10
-text-white/70
+border-subtle
+text-muted
 backdrop-blur-md
 "
                   >

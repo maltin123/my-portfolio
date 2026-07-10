@@ -50,7 +50,7 @@ function Counter({ number, label }) {
         className="
           text-4xl
           font-bold
-          text-lime-300
+          text-accent
         "
       >
         {count}+
@@ -59,7 +59,7 @@ function Counter({ number, label }) {
       <p
         className="
           mt-2
-          text-white
+          text-body
           text-lg
         "
       >
@@ -93,8 +93,8 @@ export default function About() {
     relative
     overflow-hidden
     min-h-screen
-    bg-neutral-950
-    text-white
+    bg-body
+    text-body
     px-8
     py-32
   "
@@ -108,7 +108,7 @@ export default function About() {
     -translate-y-1/2
     w-[500px]
     h-[500px]
-    bg-lime-300/10
+    bg-accent-muted
     blur-[160px]
     rounded-full
     pointer-events-none
@@ -123,7 +123,7 @@ export default function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="
-  text-lime-300
+  text-accent
   uppercase
   tracking-[8px]
   mb-6
@@ -150,7 +150,7 @@ export default function About() {
           Designing experiences
           <br />
           that feel
-          <span className="text-lime-300 leading-[1.2]"> natural.</span>
+          <span className="text-accent leading-[1.2]"> natural.</span>
         </motion.h2>
 
         {/* Content */}
@@ -166,7 +166,7 @@ export default function About() {
           <div>
             <p
               className="
-              text-white/60
+              text-muted
               text-lg
               leading-relaxed
             "
@@ -178,7 +178,7 @@ export default function About() {
             <p
               className="
               mt-6
-              text-white/60
+              text-muted
               text-lg
               leading-relaxed
             "
@@ -229,8 +229,8 @@ export default function About() {
         p-6
         rounded-2xl
         border
-        border-white/10
-        bg-white/5
+        border-subtle
+        bg-glass
         backdrop-blur-md
         flex
         flex-col
@@ -238,8 +238,8 @@ export default function About() {
         transition-all
         duration-500
         hover:-translate-y-3
-        hover:border-lime-300/60
-        hover:shadow-[0_0_40px_rgba(163,230,53,0.15)]
+        hover:border-accent
+        hover:shadow-accent-glow
       "
               >
                 <div
@@ -247,7 +247,7 @@ export default function About() {
           absolute
           inset-0
           bg-gradient-to-r
-          from-lime-300/10
+          from-[var(--accent)]/10
           to-transparent
           opacity-0
           group-hover:opacity-100
@@ -262,8 +262,8 @@ export default function About() {
           text-2xl
           font-bold
           mb-3
-          text-white
-          group-hover:text-lime-300
+          text-body
+          group-hover:text-accent
           transition-colors
         "
                 >
@@ -273,11 +273,11 @@ export default function About() {
                 <p
                   className="
           relative
-          text-white/60
+          text-muted
           leading-relaxed
         "
-                >
-                  {card.text}
+      >
+        {card.text}
                 </p>
               </motion.div>
             ))}
