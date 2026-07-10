@@ -125,7 +125,7 @@ text-body
     py-4
     rounded-full
     bg-accent
-    text-body
+    text-white
     font-semibold
     transition-all
     duration-300

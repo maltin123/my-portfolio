@@ -19,7 +19,7 @@ export default function BackToTop() {
           exit={{ opacity: 0, scale: 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-accent text-body flex items-center justify-center shadow-accent-glow hover:shadow-accent-glow transition-shadow"
+          className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center shadow-accent-glow hover:shadow-accent-glow transition-shadow"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

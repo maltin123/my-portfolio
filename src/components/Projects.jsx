@@ -124,7 +124,7 @@ hover:shadow-accent-glow
       py-3
       rounded-full
       bg-accent
-      text-body
+      text-white
       font-semibold
       hover:scale-105
       transition

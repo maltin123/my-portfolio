@@ -68,7 +68,7 @@ export default function Hero() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="inline-block mt-10 px-8 py-4 rounded-full bg-accent text-body font-semibold shadow-accent-glow hover:shadow-accent-glow"
+            className="inline-block mt-10 px-8 py-4 rounded-full bg-accent text-white font-semibold shadow-accent-glow hover:shadow-accent-glow"
           >
             View My Work
           </motion.a>
