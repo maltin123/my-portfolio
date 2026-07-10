@@ -10,6 +10,7 @@ function getInitialTheme() {
 
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(getInitialTheme);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     localStorage.setItem("theme", theme);
@@ -19,7 +20,7 @@ export function ThemeProvider({ children }) {
   const toggle = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
 
   return (
-    <ThemeContext.Provider value={{ theme, toggle }}>
+    <ThemeContext.Provider value={{ theme, toggle, loading, setLoading }}>
       {children}
     </ThemeContext.Provider>
   );

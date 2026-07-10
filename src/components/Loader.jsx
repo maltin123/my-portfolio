@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Logo from "./Logo";
+import { useTheme } from "../context/ThemeContext";
 
 export default function Loader() {
+  const { setLoading } = useTheme();
   const [show, setShow] = useState(true);
 
   if (!show) return null;
@@ -12,7 +14,7 @@ export default function Loader() {
       initial={{ opacity: 1 }}
       animate={{ opacity: 0 }}
       transition={{ duration: 0.6, delay: 2.2 }}
-      onAnimationComplete={() => setShow(false)}
+      onAnimationComplete={() => { setShow(false); setLoading(false); }}
       className="fixed inset-0 z-[999] bg-neutral-950 flex flex-col items-center justify-center gap-8"
     >
       {/* ambient glow */}

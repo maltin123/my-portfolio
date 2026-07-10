@@ -1,5 +1,6 @@
 import { useEffect, useState, useMemo } from "react";
 import { motion } from "framer-motion";
+import { useTheme } from "../context/ThemeContext";
 
 const NAME = "MAN SITT EAIN";
 const TAGLINE = "Designing Your Digital Experiences";
@@ -14,6 +15,7 @@ function shuffle(arr) {
 }
 
 export default function Hero() {
+  const { loading } = useTheme();
   const [show, setShow] = useState(false);
   const [nameRevealed, setNameRevealed] = useState(new Set());
   const [typedChars, setTypedChars] = useState(0);
@@ -24,8 +26,8 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
-    setTimeout(() => setShow(true), 3500);
-  }, []);
+    if (!loading) setShow(true);
+  }, [loading]);
 
   useEffect(() => {
     if (!show) return;
