@@ -22,7 +22,7 @@ export const projects = [
       "Mobile-first responsive design",
       "Scalable component-based layout",
     ],
-    link: "#",
+    link: "https://www.passiongeek.tech/",
   },
   {
     slug: "Portfolio and Dashboard",
@@ -47,7 +47,7 @@ export const projects = [
       "Visitor analytics at a glance",
       "Seamless public-private navigation",
     ],
-    link: "#",
+    link: "https://freshmoe.com/",
   },
   {
     slug: "In House Product",
@@ -55,7 +55,7 @@ export const projects = [
     company: "iStream",
     category: "App/Web Design",
     image: "/projects/mascots.png",
-    description: "A scalable dashboard interface for data-driven products.",
+    description: "A seamless movie streaming experience for every age group.",
     tags: ["UI Design", "React", "Components"],
     overview:
       "An in-house movie streaming platform designed to deliver a premium entertainment experience. iStream focuses on intuitive content discovery, personalised recommendations, and a seamless cross-device viewing experience.",
@@ -71,7 +71,7 @@ export const projects = [
       "Positive user feedback on UI polish",
       "Cross-device sync implementation",
     ],
-    link: "#",
+    link: "https://stream-sphere.com/",
   },
   {
     slug: "Online Banking Dashboard",
@@ -80,7 +80,7 @@ export const projects = [
     category: "UI / UX Design",
     image: "/projects/SDAX.png",
     description:
-      "A modern warehouse management solution focused on efficiency and usability.",
+      "Globally accessible online banking dashboard designed for clarity, efficiency, and trust.",
     tags: ["UX Research", "UI Design", "Prototype"],
     overview:
       "A comprehensive online banking dashboard for SDAX, designed to give users a clear, real-time view of their financial landscape. The project prioritized data clarity, transaction efficiency, and trusted banking interactions.",
@@ -96,6 +96,6 @@ export const projects = [
       "Enhanced trust through design",
       "Accessible and compliant interface",
     ],
-    link: "#",
+    link: "https://www.sdax.co/",
   },
 ];
