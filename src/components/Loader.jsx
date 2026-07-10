@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import Logo from "./Logo";
 import { useTheme } from "../context/ThemeContext";
+
+const TEXT = "MAN SITT EAIN";
 
 export default function Loader() {
   const { theme, setLoading } = useTheme();
@@ -14,35 +15,45 @@ export default function Loader() {
     <motion.div
       initial={{ opacity: 1 }}
       animate={{ opacity: 0 }}
-      transition={{ duration: 0.6, delay: 2.2 }}
+      transition={{ duration: 0.6, delay: 3.2 }}
       onAnimationComplete={() => { setShow(false); setLoading(false); }}
-      className={`fixed inset-0 z-[999] flex flex-col items-center justify-center gap-8 ${isDark ? "bg-neutral-950" : "bg-[#f4f5f7]"}`}
+      className={`fixed inset-0 z-[999] flex flex-col items-center justify-center ${isDark ? "bg-neutral-950" : "bg-[#f4f5f7]"}`}
     >
-      {/* ambient glow */}
-      <div className="absolute w-[400px] h-[400px] bg-accent-muted blur-[160px] rounded-full pointer-events-none" />
+      {/* ripple rings */}
+      {[0, 1, 2].map((i) => (
+        <motion.div
+          key={i}
+          className="absolute rounded-full border-2 border-accent"
+          initial={{ width: 0, height: 0, opacity: 0.6 }}
+          animate={{ width: 280, height: 280, opacity: 0 }}
+          transition={{
+            duration: 2.2,
+            repeat: Infinity,
+            delay: i * 0.6,
+            ease: "easeOut",
+          }}
+          style={{ borderRadius: "50%" }}
+        />
+      ))}
 
-      {/* bouncing M */}
-      <motion.div
-        animate={{ y: [0, -12, 0] }}
-        transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <Logo className={`h-14 w-auto relative ${isDark ? "text-white" : "text-[#222222]"}`} />
-      </motion.div>
-
-      {/* Google-style bouncing dots */}
-      <div className="flex gap-3">
-        {[0, 1, 2, 3].map((i) => (
-          <motion.div
+      {/* letters */}
+      <div className="flex items-center gap-1.5">
+        {TEXT.split("").map((ch, i) => (
+          <motion.span
             key={i}
-            className="w-2.5 h-2.5 rounded-full bg-accent"
-            animate={{ y: [0, -10, 0], scale: [1, 1.3, 1] }}
+            initial={{ opacity: 0, scale: 0, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{
-              duration: 0.8,
-              repeat: Infinity,
-              delay: i * 0.15,
-              ease: "easeInOut",
+              duration: 0.4,
+              delay: 0.3 + i * 0.08,
+              ease: "backOut",
             }}
-          />
+            className={`text-5xl md:text-6xl font-bold tracking-tight ${
+              ch === " " ? "w-[0.3em]" : ""
+            } ${isDark ? "text-white" : "text-[#222222]"}`}
+          >
+            {ch === " " ? "\u00A0" : ch}
+          </motion.span>
         ))}
       </div>
     </motion.div>
