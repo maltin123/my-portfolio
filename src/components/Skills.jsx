@@ -131,6 +131,10 @@ export default function Skills() {
   border-subtle
   bg-glass
   backdrop-blur-md
+  transition-all
+  duration-500
+  hover:border-accent
+  hover:shadow-accent-glow
 "
             >
               <div
