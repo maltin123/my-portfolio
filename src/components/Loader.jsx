@@ -25,21 +25,19 @@ export default function Loader() {
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <motion.div
-        initial={{ y: 30, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        className="w-96 relative flex items-center"
-      >
+      <div className="w-96 relative flex items-center">
         {/* glass track */}
         <div className={`relative w-full h-1.5 rounded-full overflow-hidden ${isDark ? "bg-white/5 backdrop-blur-md border border-white/10" : "bg-black/5 backdrop-blur-md border border-black/10"}`}>
           {/* progress fill */}
           <motion.div
-            className="h-full rounded-full bg-accent relative"
+            className="h-full rounded-full relative"
             initial={{ width: "0%" }}
             animate={{ width: "100%" }}
             transition={{ duration: 1.8, ease: "easeInOut" }}
-            style={{ boxShadow: "0 0 20px var(--accent-glow), 0 0 60px var(--accent-glow)" }}
+            style={{
+              background: "linear-gradient(90deg, #0066ff, #0052cc, #003399)",
+              boxShadow: "0 0 20px var(--accent-glow), 0 0 60px var(--accent-glow)",
+            }}
           />
         </div>
 
@@ -53,7 +51,7 @@ export default function Loader() {
           <div className="absolute w-12 h-12 bg-accent-muted blur-2xl rounded-full" />
           <Logo className={`h-9 w-auto relative ${isDark ? "text-white" : "text-[#222222]"}`} />
         </motion.div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 }
