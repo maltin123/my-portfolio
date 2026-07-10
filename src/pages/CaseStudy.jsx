@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import Logo from "../components/Logo";
 import ThemeToggle from "../components/ThemeToggle";
+import Footer from "../components/Footer";
 import { projects } from "../data/projects";
 
 const fadeUp = {
@@ -41,7 +42,10 @@ export default function CaseStudy() {
       {/* Nav */}
       <nav className="fixed top-0 left-0 w-full z-50 bg-[var(--nav-bg)] backdrop-blur-xl border-b border-subtle">
         <div className="max-w-6xl mx-auto px-8 py-4 flex justify-between items-center">
-          <Link to="/" className="text-sm text-muted hover:text-accent transition-colors">
+          <Link
+            to="/"
+            className="text-sm text-muted hover:text-accent transition-colors"
+          >
             ← Back to Portfolio
           </Link>
           <div className="flex items-center gap-3">
@@ -66,7 +70,7 @@ export default function CaseStudy() {
           <motion.h1
             {...fadeUp}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-bold leading-tight inline-flex items-center gap-4 justify-center"
+            className="text-5xl md:text-7xl font-bold leading-tight inline-flex items-center gap-4 justify-between"
           >
             {project.title}
             {project.link && project.link !== "#" && (
@@ -74,11 +78,21 @@ export default function CaseStudy() {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-accent bg-transparent text-accent hover:bg-accent hover:text-[var(--accent-hover-text)] transition-all duration-300"
+                className="inline-flex items-center justify-center w-10 h-10 flex-shrink-0 rounded-xl border border-accent bg-transparent text-accent hover:bg-accent hover:text-[var(--accent-hover-text)] transition-all duration-300"
                 title="Visit website"
               >
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                  />
                 </svg>
               </a>
             )}
@@ -200,10 +214,7 @@ export default function CaseStudy() {
         </motion.div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-subtle py-8 px-8 text-center text-muted-2 text-sm">
-        © 2026 Man Sitt. All rights reserved.
-      </footer>
+      <Footer />
     </div>
   );
 }
