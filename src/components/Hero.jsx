@@ -52,12 +52,12 @@ export default function Hero() {
             UI / UX Designer
           </p>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-none text-white mb-8">
-            It's me <br />
+            It's me
+            <br />
             <span className="text-lime-300">MAN SITT EAIN</span>
           </h1>
           <p className="text-xl md:text-2xl text-white/80 font-medium">
-            Designing
-            <span className="text-lime-300"> Your</span> Digital Experiences
+            Designing Your Digital Experiences
           </p>
           <p className="mt-8 max-w-xl text-lg text-white/60 leading-relaxed">
             I create meaningful digital products through user research,
