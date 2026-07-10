@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import CursorGlow from "./components/CursorGlow";
 import Loader from "./components/Loader";
 import BackToTop from "./components/BackToTop";
+import DecoGrid from "./components/DecoGrid";
 import CaseStudy from "./pages/CaseStudy";
 
 function Home() {
@@ -41,6 +42,7 @@ export default function App() {
       <Loader />
       <CursorGlow />
       <BackToTop />
+      <DecoGrid />
       <div className="relative z-10">
         <Routes>
           <Route path="/" element={<Home />} />
