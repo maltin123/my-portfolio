@@ -1,3 +1,8 @@
+![React](https://img.shields.io/badge/React-19-blue)
+![Vite](https://img.shields.io/badge/Vite-7-purple)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-38BDF8)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 # 🎨 UI/UX Designer Portfolio
 
 A modern, interactive portfolio website showcasing my UI/UX design work, case studies, skills, and selected projects. Built with React and Tailwind CSS, featuring smooth animations and a clean user experience.
@@ -68,7 +73,7 @@ src/
 Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+git clone https://github.com/maltin123/my-portfolio.git
 ```
 
 Install dependencies
@@ -108,13 +113,13 @@ Portfolio:
 https://my-portfolio-vert-chi-56.vercel.app/
 
 GitHub:
-https://github.com/YOUR_USERNAME
+https://github.com/maltin123
 
 LinkedIn:
-https://linkedin.com/in/YOUR_USERNAME
+https://www.linkedin.com/in/man-sitt/
 
 Email:
-YOUR_EMAIL
+mansitt1997@gmail.com
 
 ---
 
