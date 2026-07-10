@@ -11,7 +11,15 @@ const quickLinks = [
 
 import { projects } from "../data/projects";
 
-export default function Footer() {
+export default function Footer({ simple }) {
+  if (simple) {
+    return (
+      <footer className="border-t border-subtle py-8 px-8 text-center text-muted-2 text-sm">
+        © 2026 Man Sitt. All rights reserved.
+      </footer>
+    );
+  }
+
   return (
     <footer className="bg-body text-body px-8 py-16 border-t border-subtle">
       <motion.div

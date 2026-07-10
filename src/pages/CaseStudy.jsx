@@ -214,7 +214,7 @@ export default function CaseStudy() {
         </motion.div>
       </section>
 
-      <Footer />
+      <Footer simple />
     </div>
   );
 }
