@@ -4,8 +4,9 @@ import Logo from "./Logo";
 import { useTheme } from "../context/ThemeContext";
 
 export default function Loader() {
-  const { setLoading } = useTheme();
+  const { theme, setLoading } = useTheme();
   const [show, setShow] = useState(true);
+  const isDark = theme === "dark";
 
   if (!show) return null;
 
@@ -15,7 +16,7 @@ export default function Loader() {
       animate={{ opacity: 0 }}
       transition={{ duration: 0.6, delay: 2.2 }}
       onAnimationComplete={() => { setShow(false); setLoading(false); }}
-      className="fixed inset-0 z-[999] bg-neutral-950 flex flex-col items-center justify-center gap-8"
+      className={`fixed inset-0 z-[999] flex flex-col items-center justify-center gap-8 ${isDark ? "bg-neutral-950" : "bg-[#f4f5f7]"}`}
     >
       {/* ambient glow */}
       <div className="absolute w-[400px] h-[400px] bg-accent-muted blur-[160px] rounded-full pointer-events-none" />
@@ -25,7 +26,7 @@ export default function Loader() {
         animate={{ y: [0, -12, 0] }}
         transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
       >
-        <Logo className="h-14 w-auto relative text-white" />
+        <Logo className={`h-14 w-auto relative ${isDark ? "text-white" : "text-[#222222]"}`} />
       </motion.div>
 
       {/* Google-style bouncing dots */}
