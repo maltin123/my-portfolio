@@ -104,7 +104,9 @@ hover:shadow-accent-glow
                 {/* Hover Overlay */}
                 <Link
                   to={`/case-study/${project.slug}`}
-                  onClick={() => sessionStorage.setItem("scrollY", window.scrollY)}
+                  onClick={() =>
+                    sessionStorage.setItem("scrollY", window.scrollY)
+                  }
                   className="
     absolute
     inset-0
