@@ -1,17 +1,123 @@
-# React + Vite
+# 🎨 UI/UX Designer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, interactive portfolio website showcasing my UI/UX design work, case studies, skills, and selected projects. Built with React and Tailwind CSS, featuring smooth animations and a clean user experience.
 
-Currently, two official plugins are available:
+## 🌐 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+👉 https://my-portfolio-vert-chi-56.vercel.app/
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📖 About
 
-## Expanding the ESLint configuration
+This portfolio represents my journey as a UI/UX Designer. It highlights my design process, featured case studies, technical skills, and selected frontend projects.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# portfolio
+The goal of this website is to create a premium user experience while keeping performance fast and responsive across different devices.
+
+---
+
+## ✨ Features
+
+- Modern UI Design
+- Responsive Layout
+- Smooth Scroll Navigation
+- Interactive Animations
+- Case Study Showcase
+- Project Gallery
+- Contact Section
+- Clean Component Architecture
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+
+- React
+- Vite
+- Tailwind CSS
+- JavaScript (ES6+)
+
+### Animation
+
+- Framer Motion
+- GSAP
+
+### Deployment
+
+- Vercel
+
+---
+
+## 📂 Project Structure
+
+```
+src/
+│
+├── assets/
+├── components/
+├── pages/
+├── styles/
+└── App.jsx
+```
+
+---
+
+## 🚀 Getting Started
+
+Clone the repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run locally
+
+```bash
+npm run dev
+```
+
+Build production version
+
+```bash
+npm run build
+```
+
+---
+
+## 🎯 Future Improvements
+
+- Dark / Light Theme
+- More UX Case Studies
+- Project Filtering
+- Blog Section
+- Multi-language Support
+- Performance Optimization
+
+---
+
+## 📬 Contact
+
+Portfolio:
+https://my-portfolio-vert-chi-56.vercel.app/
+
+GitHub:
+https://github.com/YOUR_USERNAME
+
+LinkedIn:
+https://linkedin.com/in/YOUR_USERNAME
+
+Email:
+YOUR_EMAIL
+
+---
+
+## 📄 License
+
+This project is open-source and available under the MIT License.
