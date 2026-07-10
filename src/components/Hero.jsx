@@ -1,14 +1,96 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { motion } from "framer-motion";
+
+const NAME = "MAN SITT EAIN";
+const TAGLINE = "Designing Your Digital Experiences";
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
 
 export default function Hero() {
   const [show, setShow] = useState(false);
+  const [nameRevealed, setNameRevealed] = useState(new Set());
+  const [typedChars, setTypedChars] = useState(0);
+
+  const nameIndices = useMemo(() => {
+    const idx = shuffle(NAME.split("").map((_, i) => i));
+    return idx;
+  }, []);
 
   useEffect(() => {
-    setTimeout(() => {
-      setShow(true);
-    }, 300);
+    setTimeout(() => setShow(true), 300);
   }, []);
+
+  useEffect(() => {
+    if (!show) return;
+    nameIndices.forEach((i, order) => {
+      setTimeout(() => {
+        setNameRevealed((prev) => new Set(prev).add(i));
+      }, 300 + order * 60);
+    });
+  }, [show, nameIndices]);
+
+  useEffect(() => {
+    if (!show) return;
+    const timer = setInterval(() => {
+      setTypedChars((prev) => {
+        if (prev >= TAGLINE.length) {
+          clearInterval(timer);
+          return prev;
+        }
+        return prev + 1;
+      });
+    }, 45);
+    return () => clearInterval(timer);
+  }, [show]);
+
+  const taglineParts = useMemo(() => {
+    const parts = [];
+    let remaining = TAGLINE;
+    while (remaining.length > 0) {
+      if (remaining.startsWith("Your")) {
+        parts.push({ text: "Your", accent: true });
+        remaining = remaining.slice(4);
+      } else {
+        parts.push({ text: remaining[0], accent: false });
+        remaining = remaining.slice(1);
+      }
+    }
+    return parts;
+  }, []);
+
+  let charCount = 0;
+  const taglineNodes = taglineParts.map((part, i) => {
+    const start = charCount;
+    charCount += part.text.length;
+    const end = charCount;
+    const visibleCount = Math.max(0, Math.min(typedChars - start, part.text.length));
+
+    if (part.accent) {
+      const visible = part.text.slice(0, visibleCount);
+      const hidden = part.text.slice(visibleCount);
+      return (
+        <span key={i}>
+          <span className="text-accent">{visible}</span>
+          <span className="invisible">{hidden}</span>
+        </span>
+      );
+    }
+    const visible = part.text.slice(0, visibleCount);
+    const hidden = part.text.slice(visibleCount);
+    return (
+      <span key={i}>
+        <span>{visible}</span>
+        <span className="invisible">{hidden}</span>
+      </span>
+    );
+  });
 
   return (
     <section
@@ -54,10 +136,23 @@ export default function Hero() {
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-none text-body mb-8">
             It's me
             <br />
-            <span className="text-accent">MAN SITT EAIN</span>
+            <span className="text-accent">
+              {NAME.split("").map((ch, i) => (
+                <span
+                  key={i}
+                  className={`transition-opacity duration-300 ${
+                    nameRevealed.has(i) ? "opacity-100" : "opacity-0"
+                  }`}
+                  style={ch === " " ? { display: "inline-block", width: "0.35em" } : undefined}
+                >
+                  {ch === " " ? "\u00A0" : ch}
+                </span>
+              ))}
+            </span>
           </h1>
-          <p className="text-xl md:text-2xl text-body/80 font-medium">
-            Designing Your Digital Experiences
+          <p className="text-xl md:text-2xl text-body/80 font-medium min-h-[1.5em]">
+            {taglineNodes}
+            <span className="animate-pulse">|</span>
           </p>
           <p className="mt-8 max-w-xl text-lg text-muted leading-relaxed">
             I create meaningful digital products through user research,
