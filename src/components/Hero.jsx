@@ -24,7 +24,7 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
-    setTimeout(() => setShow(true), 300);
+    setTimeout(() => setShow(true), 3500);
   }, []);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export default function Hero() {
     nameIndices.forEach((i, order) => {
       setTimeout(() => {
         setNameRevealed((prev) => new Set(prev).add(i));
-      }, 300 + order * 60);
+      }, order * 60);
     });
   }, [show, nameIndices]);
 
