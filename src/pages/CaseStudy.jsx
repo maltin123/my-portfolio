@@ -44,10 +44,12 @@ export default function CaseStudy() {
           <Link to="/" className="text-sm text-muted hover:text-accent transition-colors">
             ← Back to Portfolio
           </Link>
-          <Link to="/">
-            <Logo className="h-8 w-auto text-body" />
-          </Link>
-          <ThemeToggle />
+          <div className="flex items-center gap-3">
+            <Link to="/">
+              <Logo className="h-8 w-auto text-body" />
+            </Link>
+            <ThemeToggle />
+          </div>
         </div>
       </nav>
 
@@ -72,7 +74,7 @@ export default function CaseStudy() {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-accent bg-transparent text-accent hover:bg-accent hover:text-[#0a0a0a] transition-all duration-300"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-accent bg-transparent text-accent hover:bg-accent hover:text-[var(--accent-hover-text)] transition-all duration-300"
                 title="Visit website"
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

@@ -16,6 +16,7 @@
   --accent: #a3e635;
   --accent-muted: rgba(163, 230, 53, 0.15);
   --accent-glow: rgba(163, 230, 53, 0.3);
+  --accent-hover-text: #0a0a0a;
 }
 
 [data-theme="light"] {
@@ -31,6 +32,7 @@
   --accent: #0052cc;
   --accent-muted: rgba(0, 82, 204, 0.12);
   --accent-glow: rgba(0, 82, 204, 0.25);
+  --accent-hover-text: #ffffff;
 }
 
 html {

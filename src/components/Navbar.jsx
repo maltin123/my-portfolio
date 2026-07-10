@@ -42,9 +42,6 @@ export default function Navbar() {
       `}
     >
       <div className="max-w-7xl mx-auto px-8 py-4 flex justify-between items-center">
-        <a href="#home">
-          <Logo className="h-9 w-auto text-body" />
-        </a>
         <div className="flex gap-4 md:gap-8">
           {links.map((link) => (
             <a
@@ -64,7 +61,10 @@ export default function Navbar() {
             </a>
           ))}
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
+          <a href="#home">
+            <Logo className="h-9 w-auto text-body" />
+          </a>
           <ThemeToggle />
         </div>
       </div>
