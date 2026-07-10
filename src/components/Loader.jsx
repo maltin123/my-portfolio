@@ -35,7 +35,7 @@ export default function Loader() {
             animate={{ width: "100%" }}
             transition={{ duration: 1.8, ease: "easeInOut" }}
             style={{
-              background: "linear-gradient(90deg, #0066ff, #0052cc, #003399)",
+              background: "linear-gradient(90deg, #3b82f6, #60a5fa, #93c5fd)",
               boxShadow: "0 0 20px var(--accent-glow), 0 0 60px var(--accent-glow)",
             }}
           />

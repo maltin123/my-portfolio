@@ -13,9 +13,9 @@
   --border: rgba(255, 255, 255, 0.1);
   --border-hover: rgba(255, 255, 255, 0.2);
   --nav-bg: rgba(10, 10, 10, 0.7);
-  --accent: #0052cc;
-  --accent-muted: rgba(0, 82, 204, 0.15);
-  --accent-glow: rgba(0, 82, 204, 0.3);
+  --accent: #60a5fa;
+  --accent-muted: rgba(96, 165, 250, 0.15);
+  --accent-glow: rgba(96, 165, 250, 0.3);
   --accent-hover-text: #ffffff;
 }
 
