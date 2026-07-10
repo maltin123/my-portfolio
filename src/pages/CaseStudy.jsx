@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import Logo from "../components/Logo";
+import ThemeToggle from "../components/ThemeToggle";
 import { projects } from "../data/projects";
 
 const fadeUp = {
@@ -46,6 +47,7 @@ export default function CaseStudy() {
           <Link to="/">
             <Logo className="h-8 w-auto text-body" />
           </Link>
+          <ThemeToggle />
         </div>
       </nav>
 
@@ -70,7 +72,7 @@ export default function CaseStudy() {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-subtle bg-glass hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 group"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-accent bg-transparent text-accent hover:bg-accent hover:text-[#0a0a0a] transition-all duration-300"
                 title="Visit website"
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
