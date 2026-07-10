@@ -13,10 +13,10 @@
   --border: rgba(255, 255, 255, 0.1);
   --border-hover: rgba(255, 255, 255, 0.2);
   --nav-bg: rgba(10, 10, 10, 0.7);
-  --accent: #a3e635;
-  --accent-muted: rgba(163, 230, 53, 0.15);
-  --accent-glow: rgba(163, 230, 53, 0.3);
-  --accent-hover-text: #0a0a0a;
+  --accent: #0052cc;
+  --accent-muted: rgba(0, 82, 204, 0.15);
+  --accent-glow: rgba(0, 82, 204, 0.3);
+  --accent-hover-text: #ffffff;
 }
 
 [data-theme="light"] {

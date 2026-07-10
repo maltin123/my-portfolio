@@ -102,11 +102,11 @@ export default function Hero() {
       {/* Ripple Effects */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="absolute w-24 h-24 rounded-full bg-accent-muted blur-2xl" />
-        <div className="absolute w-[500px] h-[500px] rounded-full bg-gradient-to-r from-[var(--accent)]/20 via-cyan-400/20 to-transparent blur-[120px] animate-ambient" />
+        <div className="absolute w-[500px] h-[500px] rounded-full bg-gradient-to-r from-[var(--accent)]/20 via-[var(--accent)]/10 to-transparent blur-[120px] animate-ambient" />
         <div className="absolute w-[350px] h-[350px] rounded-full border border-accent shadow-accent-glow animate-wave" />
         <div
           style={{ animationDelay: "1.5s" }}
-          className="absolute w-[550px] h-[550px] rounded-full border border-cyan-300/10 shadow-[0_0_100px_rgba(34,211,238,0.15)] animate-wave"
+          className="absolute w-[550px] h-[550px] rounded-full border border-accent/10 shadow-[0_0_100px_var(--accent-glow)] animate-wave"
         />
         <div
           style={{ animationDelay: "3s" }}
