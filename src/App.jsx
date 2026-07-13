@@ -14,6 +14,7 @@ import Loader from "./components/Loader";
 import BackToTop from "./components/BackToTop";
 import ScrollProgress from "./components/ScrollProgress";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Analytics } from "@vercel/analytics/react";
 import CaseStudy from "./pages/CaseStudy";
 
 function Home() {
@@ -69,6 +70,7 @@ export default function App() {
       <BackToTop />
       <ScrollProgress />
       <SpeedInsights />
+      <Analytics />
 
       <AnimatedRoutes />
     </ThemeProvider>
