@@ -25,10 +25,9 @@ export default function Loader() {
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <div className="w-96 relative flex items-center">
-        {/* glass track */}
+      {/* desktop: progress bar with M head */}
+      <div className="hidden lg:flex w-96 relative items-center">
         <div className={`relative w-full h-1.5 rounded-full overflow-hidden ${isDark ? "bg-white/5 backdrop-blur-md border border-white/10" : "bg-black/5 backdrop-blur-md border border-black/10"}`}>
-          {/* progress fill */}
           <motion.div
             className="h-full rounded-full relative"
             initial={{ width: "0%" }}
@@ -41,7 +40,6 @@ export default function Loader() {
           />
         </div>
 
-        {/* M head */}
         <motion.div
           className="absolute -translate-x-1/2 flex items-center justify-center"
           initial={{ left: "0%" }}
@@ -51,6 +49,32 @@ export default function Loader() {
           <div className="absolute w-12 h-12 bg-accent-muted blur-2xl rounded-full" />
           <Logo className={`h-9 w-auto relative ${isDark ? "text-white" : "text-[#222222]"}`} />
         </motion.div>
+      </div>
+
+      {/* mobile: bouncing M + dots */}
+      <div className="flex lg:hidden flex-col items-center gap-8">
+        <motion.div
+          animate={{ y: [0, -12, 0] }}
+          transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <Logo className={`h-14 w-auto relative ${isDark ? "text-white" : "text-[#222222]"}`} />
+        </motion.div>
+
+        <div className="flex gap-3">
+          {[0, 1, 2, 3].map((i) => (
+            <motion.div
+              key={i}
+              className="w-2.5 h-2.5 rounded-full bg-accent"
+              animate={{ y: [0, -10, 0], scale: [1, 1.3, 1] }}
+              transition={{
+                duration: 0.8,
+                repeat: Infinity,
+                delay: i * 0.15,
+                ease: "easeInOut",
+              }}
+            />
+          ))}
+        </div>
       </div>
     </motion.div>
   );
