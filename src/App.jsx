@@ -13,6 +13,7 @@ import CursorGlow from "./components/CursorGlow";
 import Loader from "./components/Loader";
 import BackToTop from "./components/BackToTop";
 import ScrollProgress from "./components/ScrollProgress";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import CaseStudy from "./pages/CaseStudy";
 
 function Home() {
@@ -67,6 +68,7 @@ export default function App() {
       <CursorGlow />
       <BackToTop />
       <ScrollProgress />
+      <SpeedInsights />
 
       <AnimatedRoutes />
     </ThemeProvider>
