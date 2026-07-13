@@ -9,7 +9,7 @@ A modern, interactive portfolio website showcasing my UI/UX design work, case st
 
 ## 🌐 Live Demo
 
-👉 https://my-portfolio-vert-chi-56.vercel.app/
+👉 https://mansittuix.vercel.app/
 
 ---
 
@@ -110,7 +110,7 @@ npm run build
 ## 📬 Contact
 
 Portfolio:
-https://my-portfolio-vert-chi-56.vercel.app/
+https://mansittuix.vercel.app/
 
 GitHub:
 https://github.com/maltin123
