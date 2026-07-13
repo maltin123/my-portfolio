@@ -42,7 +42,7 @@ export default function Navbar() {
       `}
     >
       <div className="max-w-7xl mx-auto px-8 py-4 flex justify-between items-center">
-        <a href="#home">
+        <a href="#home" className="hover:scale-105 transition-transform">
           <Logo className="h-9 w-auto text-body" />
         </a>
         <div className="flex gap-4 md:gap-8">

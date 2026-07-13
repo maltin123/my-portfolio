@@ -15,7 +15,11 @@ export default function Projects() {
       "
     >
       <div className="max-w-6xl mx-auto">
-        <p
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
           className="
           text-accent
           uppercase
@@ -24,9 +28,13 @@ export default function Projects() {
           "
         >
           Projects
-        </p>
+        </motion.p>
 
-        <h2
+        <motion.h2
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
           className="
           text-5xl
           md:text-7xl
@@ -35,7 +43,7 @@ export default function Projects() {
         >
           Selected
           <span className="text-accent"> Works.</span>
-        </h2>
+        </motion.h2>
 
         <div
           className="
@@ -206,6 +214,7 @@ border
 border-subtle
 text-muted
 backdrop-blur-md
+hover:scale-105 hover:border-accent transition-all duration-200
 "
                   >
                     {tag}

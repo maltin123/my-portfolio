@@ -32,7 +32,7 @@ export default function Footer({ simple }) {
         <div className="max-w-7xl mx-auto px-8 py-4 flex flex-col md:flex-row justify-between items-stretch gap-10">
           {/* Brand + Contact */}
           <div>
-            <Logo className="h-8 w-auto text-body mb-4" />
+            <Logo className="h-8 w-auto text-body mb-4 hover:scale-105 transition-transform" />
             <p className="text-muted-2 text-sm leading-relaxed mb-6">
               Designing meaningful digital experiences through user research,{" "}
               <br />

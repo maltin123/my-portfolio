@@ -160,6 +160,8 @@ export default function Skills() {
       text-2xl
       font-bold
       text-body
+      group-hover:text-accent
+      transition-colors
     "
               >
                 {skill.title}

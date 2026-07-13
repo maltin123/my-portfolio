@@ -164,7 +164,11 @@ export default function About() {
         "
         >
           <div>
-            <p
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
               className="
               text-muted
               text-lg
@@ -173,9 +177,13 @@ export default function About() {
             >
               I'm a UI/UX Designer passionate about creating digital products
               that are simple, intuitive and enjoyable to use.
-            </p>
+            </motion.p>
 
-            <p
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.15 }}
               className="
               mt-6
               text-muted
@@ -185,7 +193,7 @@ export default function About() {
             >
               My approach combines user research, interaction design and visual
               design to create meaningful experiences.
-            </p>
+            </motion.p>
             <div className="space-y-8 mt-10">
               <Counter number={3} label="Years Learning" />
 

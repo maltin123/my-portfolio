@@ -18,6 +18,7 @@ export default function BackToTop() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          whileHover={{ scale: 1.1 }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center shadow-accent-glow hover:shadow-accent-glow transition-shadow"
         >

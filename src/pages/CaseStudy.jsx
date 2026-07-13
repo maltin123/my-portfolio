@@ -207,7 +207,7 @@ export default function CaseStudy() {
         <motion.div {...fadeUp} className="text-center">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-accent text-white font-semibold hover:shadow-accent-glow transition-all hover:scale-105"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-accent text-white font-semibold hover:shadow-accent-glow transition-all hover:scale-105 active:scale-95"
           >
             ← Back to All Projects
           </Link>
