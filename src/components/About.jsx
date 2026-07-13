@@ -195,11 +195,11 @@ export default function About() {
               design to create meaningful experiences.
             </motion.p>
             <div className="space-y-8 mt-10">
-              <Counter number={3} label="Years Learning" />
+              <Counter number={5} label="Years Learning" />
 
               <Counter number={15} label="Projects Completed" />
 
-              <Counter number={1000} label="Happy Clients" />
+              <Counter number={500} label="Happy Clients" />
             </div>
           </div>
 
@@ -284,8 +284,8 @@ export default function About() {
           text-muted
           leading-relaxed
         "
-      >
-        {card.text}
+                >
+                  {card.text}
                 </p>
               </motion.div>
             ))}
