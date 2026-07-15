@@ -46,7 +46,7 @@ export default function Navbar() {
           <Logo className="h-9 w-auto text-body" />
         </a>
 
-        <div className="max-[914px]:hidden flex gap-4 md:gap-8">
+        <div className="max-[767px]:hidden flex gap-4 md:gap-8">
           {links.map((link) => (
             <a
               key={link.href}
