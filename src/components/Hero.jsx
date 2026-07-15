@@ -115,7 +115,7 @@ export default function Hero() {
       </div>
 
       {/* Photo - bottom right */}
-      <div className="hidden md:block absolute bottom-0 right-0 w-80 md:w-[450px] lg:w-[600px] pointer-events-none select-none">
+      <div className="max-[914px]:hidden absolute bottom-0 right-0 w-80 md:w-[450px] lg:w-[600px] pointer-events-none select-none">
         <img
           src="/photo.png"
           alt="Man Sitt"
