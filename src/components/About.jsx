@@ -199,7 +199,7 @@ export default function About() {
 
               <Counter number={15} label="Projects Completed" />
 
-              <Counter number={500} label="Happy Clients" />
+              <Counter number={100} label="Happy Clients" />
             </div>
           </div>
 
