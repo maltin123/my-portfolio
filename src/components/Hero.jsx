@@ -160,15 +160,27 @@ export default function Hero() {
             I create meaningful digital products through user research,
             interaction design and modern interfaces.
           </p>
-          <motion.a
-            href="#projects"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            className="inline-block mt-10 px-8 py-4 rounded-full bg-accent text-white font-semibold shadow-accent-glow hover:shadow-accent-glow"
-          >
-            View My Work
-          </motion.a>
+          <div className="mt-10 flex items-center gap-6 flex-wrap">
+            <motion.a
+              href="#projects"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="inline-block px-8 py-4 rounded-full bg-accent text-white font-semibold shadow-accent-glow hover:shadow-accent-glow"
+            >
+              View My Work
+            </motion.a>
+            <motion.a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ x: 3 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="inline-block text-sm font-medium text-muted hover:text-accent transition-colors duration-300 underline underline-offset-4 decoration-accent/30 hover:decoration-accent"
+            >
+              Download Resume →
+            </motion.a>
+          </div>
         </div>
       </div>
     </section>
