@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import {
-  FaFacebook,
+  FaGithub,
   FaLinkedin,
-  FaInstagram,
   FaTelegram,
+  FaFacebook,
+  FaInstagram,
 } from "react-icons/fa";
 
 const bounceSpring = { type: "spring", stiffness: 400, damping: 8 };
@@ -117,7 +118,7 @@ text-body
   "
         >
           <motion.a
-            href="mailto:your@email.com"
+            href="mailto:mansitt1997@gmail.com"
             whileHover={{ scale: 1.08, rotate: [-1, 1, -1, 1, 0] }}
             whileTap={{ scale: 0.92 }}
             className="
@@ -137,11 +138,19 @@ text-body
           </motion.a>
 
           <div className="flex gap-5">
-            {[FaFacebook, FaLinkedin, FaInstagram, FaTelegram].map(
-              (Icon, i) => (
+            {[
+              { Icon: FaGithub, href: "https://github.com/maltin123" },
+              { Icon: FaLinkedin, href: "https://www.linkedin.com/in/man-sitt-9b914a37a" },
+              { Icon: FaTelegram, href: "https://t.me/mansitt" },
+              { Icon: FaFacebook, href: "https://www.facebook.com/share/1DwjwxnYNP/" },
+              { Icon: FaInstagram, href: "https://www.instagram.com/mansitteain?igsh=ejVlbmJtMmJzeHR2" },
+            ].map(
+              ({ Icon, href }, i) => (
                 <motion.a
                   key={i}
-                  href="#"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   initial={{ opacity: 0, y: 40, rotate: -20 }}
                   whileInView={{ opacity: 1, y: 0, rotate: 0 }}
                   viewport={{ once: true }}
