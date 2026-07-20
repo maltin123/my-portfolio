@@ -178,26 +178,6 @@ text-body
               <p className="text-accent font-semibold">Thanks! Your message has been sent.</p>
             )}
 
-            <motion.a
-            href="mailto:mansitt1997@gmail.com"
-            whileHover={{ scale: 1.08, rotate: [-1, 1, -1, 1, 0] }}
-            whileTap={{ scale: 0.92 }}
-            className="
-    px-10
-    py-4
-    rounded-full
-    bg-accent
-    text-white
-    font-semibold
-    transition-all
-    duration-300
-    hover:bg-accent
-    hover:shadow-accent-glow
-    "
-          >
-            Let's Talk →
-          </motion.a>
-
           <div className="flex gap-5">
             {[
               { Icon: FaGithub, href: "https://github.com/maltin123" },
