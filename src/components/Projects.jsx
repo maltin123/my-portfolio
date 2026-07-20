@@ -1,8 +1,14 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { projects } from "../data/projects";
 
+const categories = ["All", ...new Set(projects.map((p) => p.category))];
+
 export default function Projects() {
+  const [activeCategory, setActiveCategory] = useState("All");
+  const filtered = activeCategory === "All" ? projects : projects.filter((p) => p.category === activeCategory);
+
   return (
     <section
       id="projects"
@@ -45,15 +51,36 @@ export default function Projects() {
           <span className="text-accent"> Works.</span>
         </motion.h2>
 
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="flex flex-wrap gap-3 mt-12"
+        >
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`
+                px-5 py-2 rounded-full text-sm font-medium border transition-all duration-300
+                ${activeCategory === cat ? "bg-accent text-white border-accent" : "bg-glass border-subtle text-muted hover:border-accent hover:text-accent"}
+              `}
+            >
+              {cat}
+            </button>
+          ))}
+        </motion.div>
+
         <div
           className="
           grid
           md:grid-cols-2
           gap-8
-          mt-20
+          mt-12
           "
         >
-          {projects.map((project, index) => (
+          {filtered.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{
@@ -96,10 +123,11 @@ hover:shadow-accent-glow
   group/image
   "
               >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    loading="lazy"
+                    className="
     w-full
     h-full
     object-cover
@@ -107,7 +135,7 @@ hover:shadow-accent-glow
     duration-700
     group-hover/image:scale-110
     "
-                />
+                  />
 
                 {/* Hover Overlay */}
                 <Link
@@ -221,6 +249,20 @@ hover:scale-105 hover:border-accent transition-all duration-200
                   </span>
                 ))}
               </div>
+
+              {project.link && project.link !== "#" && (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-2 text-sm text-accent hover:underline transition-colors"
+                >
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                  Live Demo
+                </a>
+              )}
             </motion.div>
           ))}
         </div>

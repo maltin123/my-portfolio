@@ -21,6 +21,22 @@ export default function CaseStudy() {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    document.title = `${project.title} — Man Sitt`;
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) {
+      meta = document.createElement("meta");
+      meta.name = "description";
+      document.head.appendChild(meta);
+    }
+    meta.content = project.description;
+    return () => {
+      document.title = "Man Sitt — UI/UX Designer";
+      const old = document.querySelector('meta[name="description"]');
+      if (old) old.remove();
+    };
+  }, [project.title]);
+
   if (!project) {
     return (
       <div className="min-h-screen bg-body flex items-center justify-center text-body">
@@ -118,6 +134,29 @@ export default function CaseStudy() {
               </span>
             ))}
           </motion.div>
+
+          {project.role && project.timeline && (
+            <motion.div
+              {...fadeUp}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-wrap justify-center gap-8 mt-10 text-center"
+            >
+              <div>
+                <p className="text-muted-2 text-sm uppercase tracking-widest">
+                  Role
+                </p>
+                <p className="text-body font-semibold mt-1">{project.role}</p>
+              </div>
+              <div>
+                <p className="text-muted-2 text-sm uppercase tracking-widest">
+                  Timeline
+                </p>
+                <p className="text-body font-semibold mt-1">
+                  {project.timeline}
+                </p>
+              </div>
+            </motion.div>
+          )}
         </div>
       </section>
 
@@ -131,15 +170,68 @@ export default function CaseStudy() {
           <img
             src={project.image}
             alt={project.title}
+            loading="lazy"
             className="w-full h-auto object-cover"
           />
         </div>
       </motion.section>
 
+      {/* Gallery */}
+      {project.gallery && project.gallery.length > 0 && (
+        <section className="px-8 pb-20">
+          <div className="max-w-5xl mx-auto">
+            <motion.h2
+              {...fadeUp}
+              className="text-accent text-sm uppercase tracking-[6px] mb-8 text-center"
+            >
+              Gallery
+            </motion.h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {project.gallery.map((img, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.5 }}
+                  className="rounded-2xl overflow-hidden border border-subtle"
+                >
+                  <img
+                    src={img}
+                    alt={`${project.title} gallery ${i + 1}`}
+                    loading="lazy"
+                    className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
+                  />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* In-page nav */}
+      <nav className="sticky top-20 z-30 hidden lg:block float-right ml-8 mb-8 w-48">
+        <div className="bg-glass backdrop-blur-md border border-subtle rounded-xl p-4">
+          <p className="text-xs uppercase tracking-widest text-muted-2 mb-3">On this page</p>
+          <ul className="space-y-2 text-sm">
+            {["Overview", "The Problem", "The Approach", "The Solution", "Results"].map((s) => (
+              <li key={s}>
+                <a
+                  href={`#${s.toLowerCase().replace(/\s+/g, "-")}`}
+                  className="text-muted hover:text-accent transition-colors duration-200"
+                >
+                  {s}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+
       {/* Content */}
       <section className="max-w-4xl mx-auto px-8 pb-32 space-y-24">
         {/* Overview */}
-        <motion.div {...fadeUp}>
+        <motion.div {...fadeUp} id="overview">
           <h2 className="text-accent text-sm uppercase tracking-[6px] mb-4">
             Overview
           </h2>
@@ -149,7 +241,7 @@ export default function CaseStudy() {
         </motion.div>
 
         {/* Problem */}
-        <motion.div {...fadeUp}>
+        <motion.div {...fadeUp} id="the-problem">
           <h2 className="text-accent text-sm uppercase tracking-[6px] mb-4">
             The Problem
           </h2>
@@ -161,7 +253,7 @@ export default function CaseStudy() {
         </motion.div>
 
         {/* Approach */}
-        <motion.div {...fadeUp}>
+        <motion.div {...fadeUp} id="the-approach">
           <h2 className="text-accent text-sm uppercase tracking-[6px] mb-4">
             The Approach
           </h2>
@@ -171,7 +263,7 @@ export default function CaseStudy() {
         </motion.div>
 
         {/* Solution */}
-        <motion.div {...fadeUp}>
+        <motion.div {...fadeUp} id="the-solution">
           <h2 className="text-accent text-sm uppercase tracking-[6px] mb-4">
             The Solution
           </h2>
@@ -183,7 +275,7 @@ export default function CaseStudy() {
         </motion.div>
 
         {/* Results */}
-        <motion.div {...fadeUp}>
+        <motion.div {...fadeUp} id="results">
           <h2 className="text-accent text-sm uppercase tracking-[6px] mb-6">
             Results
           </h2>

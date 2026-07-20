@@ -30,6 +30,7 @@ export default function Navbar() {
     { name: "About", href: "about" },
     { name: "Skills", href: "skills" },
     { name: "Projects", href: "projects" },
+    { name: "Resume", href: "/resume.pdf" },
     { name: "Contact", href: "contact" },
   ];
 
@@ -50,7 +51,8 @@ export default function Navbar() {
           {links.map((link) => (
             <a
               key={link.href}
-              href={`#${link.href}`}
+              href={link.href.startsWith("/") ? link.href : `#${link.href}`}
+              {...(link.href.startsWith("/") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               className={`
                 relative text-sm font-medium tracking-wide
                 transition-colors duration-300

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   FaGithub,
@@ -11,6 +12,18 @@ const bounceSpring = { type: "spring", stiffness: 400, damping: 8 };
 const wordSpring = { type: "spring", stiffness: 300, damping: 6 };
 
 export default function Contact() {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [sent, setSent] = useState(false);
+
+  const handleChange = (e) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    window.location.href = `mailto:mansitt1997@gmail.com?subject=Portfolio Contact from ${encodeURIComponent(form.name)}&body=${encodeURIComponent(form.message)}%0A%0AFrom: ${encodeURIComponent(form.name)} (${encodeURIComponent(form.email)})`;
+    setSent(true);
+  };
   return (
     <section
       id="contact"
@@ -104,20 +117,68 @@ text-body
           I'm always open to discussing new projects, creative ideas and
           opportunities.
         </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 50, scale: 0.9 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ ...bounceSpring, delay: 0.65 }}
-          className="
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ ...bounceSpring, delay: 0.65 }}
+            className="
   mt-12
   flex
   flex-col
   items-center
   gap-8
+  w-full
+  max-w-md
+  mx-auto
   "
-        >
-          <motion.a
+          >
+            {!sent && (
+              <form onSubmit={handleSubmit} className="w-full space-y-4">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  value={form.name}
+                  onChange={handleChange}
+                  required
+                  aria-label="Your Name"
+                  className="w-full px-5 py-3 rounded-xl bg-glass border border-subtle text-body placeholder:text-muted-2 focus:outline-none focus:border-accent transition-colors duration-300"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  value={form.email}
+                  onChange={handleChange}
+                  required
+                  aria-label="Your Email"
+                  className="w-full px-5 py-3 rounded-xl bg-glass border border-subtle text-body placeholder:text-muted-2 focus:outline-none focus:border-accent transition-colors duration-300"
+                />
+                <textarea
+                  name="message"
+                  placeholder="Your Message"
+                  value={form.message}
+                  onChange={handleChange}
+                  required
+                  rows={4}
+                  aria-label="Your Message"
+                  className="w-full px-5 py-3 rounded-xl bg-glass border border-subtle text-body placeholder:text-muted-2 focus:outline-none focus:border-accent transition-colors duration-300 resize-none"
+                />
+                <button
+                  type="submit"
+                  className="w-full px-8 py-3 rounded-xl bg-accent text-white font-semibold hover:shadow-accent-glow transition-all duration-300"
+                >
+                  Send Message
+                </button>
+              </form>
+            )}
+
+            {sent && (
+              <p className="text-accent font-semibold">Thanks! Your message has been sent.</p>
+            )}
+
+            <motion.a
             href="mailto:mansitt1997@gmail.com"
             whileHover={{ scale: 1.08, rotate: [-1, 1, -1, 1, 0] }}
             whileTap={{ scale: 0.92 }}
@@ -151,6 +212,7 @@ text-body
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={href.includes("github") ? "GitHub" : href.includes("linkedin") ? "LinkedIn" : href.includes("telegram") ? "Telegram" : href.includes("facebook") ? "Facebook" : "Instagram"}
                   initial={{ opacity: 0, y: 40, rotate: -20 }}
                   whileInView={{ opacity: 1, y: 0, rotate: 0 }}
                   viewport={{ once: true }}

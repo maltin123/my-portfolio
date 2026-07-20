@@ -7,7 +7,7 @@ export const projects = [
     image: "/projects/pg.png",
     description:
       "Startup Software house website design with a focus on user engagement and brand identity.",
-    tags: ["UX Research", "UI Design", "Prototype"],
+    tags: ["UX Research", "Branding", "UI Enhancement"],
     overview:
       "A complete brand and website design for PassionGeek, a startup software house. The goal was to establish a strong digital presence that communicates their technical expertise and innovative culture to potential clients.",
     problem:
@@ -23,6 +23,14 @@ export const projects = [
       "Scalable component-based layout",
     ],
     link: "https://www.passiongeek.tech/",
+    role: "UI/UX Designer",
+    timeline: "Feb 2025 - Present",
+    gallery: [
+      "/casestudyimages/pg0.png",
+      "/casestudyimages/pg1.png",
+      "/casestudyimages/pg2.png",
+      "/casestudyimages/pg3.png",
+    ],
   },
   {
     slug: "Portfolio and Dashboard",
@@ -32,7 +40,7 @@ export const projects = [
     image: "/projects/freshmoe.png",
     description:
       "Designing a seamless shopping experience with intuitive user flow.",
-    tags: ["Wireframe", "Design System", "Figma"],
+    tags: ["Wireframe", "Design System", "Admin Dashboard"],
     overview:
       "A dual-purpose platform combining a personal portfolio with an admin dashboard for Freshmoe. The portfolio showcases creative work while the dashboard provides content management and analytics in one cohesive experience.",
     problem:
@@ -48,30 +56,47 @@ export const projects = [
       "Seamless public-private navigation",
     ],
     link: "https://freshmoe.com/",
+    role: "UI/UX Designer",
+    timeline: "Feb 2025 - Present",
+    gallery: [
+      "/casestudyimages/fm0.png",
+      "/casestudyimages/fm1.png",
+      "/casestudyimages/fm2.png",
+      "/casestudyimages/fm3.png",
+    ],
   },
   {
-    slug: "In House Product",
-    title: "iStream Movie Streaming Platform",
-    company: "iStream",
-    category: "App/Web Design",
-    image: "/projects/mascots.png",
-    description: "A seamless movie streaming experience for every age group.",
-    tags: ["UI Design", "React", "Components"],
+    slug: "Toyota Website Redesign",
+    title: "Toyota Website Redesign Concept",
+    company: "Toyota",
+    category: "UI/UX Design",
+    image: "/projects/toyota.png",
+    description:
+      "A modern, immersive website redesign concept for Toyota showcasing their full vehicle lineup.",
+    tags: ["UI Redesign", "Branding"],
     overview:
-      "An in-house movie streaming platform designed to deliver a premium entertainment experience. iStream focuses on intuitive content discovery, personalised recommendations, and a seamless cross-device viewing experience.",
+      "A complete website redesign concept for Toyota focused on modernising the vehicle browsing experience. The goal was to create a more immersive, intuitive platform that reflects Toyota's innovation in electrification and design while making it effortless for customers to explore, compare, and configure vehicles.",
     problem:
-      "Users faced decision fatigue with endless scrolling and poor content organisation. The search and filter system was inadequate, and the playback experience lacked modern features like continue-watching, watchlists, and parental controls.",
+      "Toyota's existing site had a dense information architecture that made vehicle discovery cumbersome. Users struggled to compare models, find pricing, and understand electrified options. The navigation was overwhelmed with submenus and the mobile experience lacked the visual impact the brand deserves.",
     approach:
-      "Analysed competitor streaming platforms to identify best practices and pain points. Designed a content-first interface with curated rows, mood-based categories, and a powerful search with multi-filters. Prototyped the video player with custom controls and subtitle support.",
+      "Conducted competitive analysis of leading automotive sites and gathered user feedback on pain points. Refined the information architecture with a vehicle-first taxonomy, designed interactive model cards with at-a-glance specs, and created a seamless build-and-price flow. Prototyped a dynamic hero section featuring Toyota's electrified lineup.",
     solution:
-      "A vibrant, dark-optimised UI with cinematic hero sections and poster-focused browsing. Smart continue-watching shelf, personalised 'For You' rows, and a robust parental control panel. The player features seamless quality switching, playback speed, and picture-in-picture mode.",
+      "A clean, performance-focused design with full-bleed vehicle hero sections, a simplified model explorer with smart filters, and an interactive comparison tool. The build-and-price experience was streamlined into a step-by-step wizard. Electrified vehicles are given prominent placement with clear range and efficiency metrics throughout.",
     results: [
-      "Reduced time-to-content by 40%",
-      "Increased watch time per session",
-      "Positive user feedback on UI polish",
-      "Cross-device sync implementation",
+      "Simplified vehicle discovery flow",
+      "Enhanced mobile browsing experience",
+      "Clear electrified vehicle education",
+      "Streamlined build-and-price process",
     ],
-    link: "https://stream-sphere.com/",
+    link: "https://toyota-myanmar-sales.com/",
+    role: "UI/UX Designer",
+    timeline: "Aug 2023 - Apr 2024",
+    gallery: [
+      "/casestudyimages/toyota0.png",
+      "/casestudyimages/toyota1.png",
+      "/casestudyimages/toyota2.png",
+      "/casestudyimages/toyota3.png",
+    ],
   },
   {
     slug: "Online Banking Dashboard",
@@ -81,7 +106,7 @@ export const projects = [
     image: "/projects/SDAX.png",
     description:
       "Globally accessible online banking dashboard designed for clarity, efficiency, and trust.",
-    tags: ["UX Research", "UI Design", "Prototype"],
+    tags: ["UX Research", "UI Design", "Admin Dashboard"],
     overview:
       "A comprehensive online banking dashboard for SDAX, designed to give users a clear, real-time view of their financial landscape. The project prioritized data clarity, transaction efficiency, and trusted banking interactions.",
     problem:
@@ -97,5 +122,13 @@ export const projects = [
       "Accessible and compliant interface",
     ],
     link: "https://www.sdax.co/",
+    role: "UX Designer",
+    timeline: "Apr 2024 - Jul 2024",
+    gallery: [
+      "/casestudyimages/sdax0.png",
+      "/casestudyimages/sdax1.png",
+      "/casestudyimages/sdax2.png",
+      "/casestudyimages/sdax3.png",
+    ],
   },
 ];

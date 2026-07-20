@@ -119,6 +119,7 @@ export default function Hero() {
         <img
           src="/photo.png"
           alt="Man Sitt"
+          loading="lazy"
           className="w-full h-auto scale-x-[-1]"
         />
       </div>

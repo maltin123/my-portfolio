@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://maltin123.github.io/my-portfolio/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://maltin123.github.io/my-portfolio/case-study/Landing%20Page%20Design</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://maltin123.github.io/my-portfolio/case-study/Portfolio%20and%20Dashboard</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://maltin123.github.io/my-portfolio/case-study/Toyota%20Website%20Redesign</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://maltin123.github.io/my-portfolio/case-study/Online%20Banking%20Dashboard</loc>
+    <priority>0.8</priority>
+  </url>
+</urlset>

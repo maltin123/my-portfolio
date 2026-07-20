@@ -1,4 +1,25 @@
 import { motion } from "framer-motion";
+import {
+  FaPaintBrush, FaLayerGroup, FaDesktop, FaSearch,
+  FaRoute, FaPencilAlt, FaReact, FaHtml5,
+  FaCss3Alt, FaJs, FaImage, FaPenNib,
+} from "react-icons/fa";
+
+const iconMap = {
+  "Visual Design": FaPaintBrush,
+  "Design Systems": FaLayerGroup,
+  "Interfaces": FaDesktop,
+  "Research": FaSearch,
+  "User Flow": FaRoute,
+  "Wireframing": FaPencilAlt,
+  "React": FaReact,
+  "HTML": FaHtml5,
+  "CSS": FaCss3Alt,
+  "JavaScript": FaJs,
+  "Figma": FaPaintBrush,
+  "Photoshop": FaImage,
+  "Illustrator": FaPenNib,
+};
 
 export default function Skills() {
   const skills = [
@@ -167,62 +188,22 @@ export default function Skills() {
                 {skill.title}
               </h3>
 
-              <p
-                className="
-      text-muted
-      relative
-  z-10
-      mt-3
-    "
-              >
-                {skill.items}
-              </p>
-
-              {/* Progress Bar ကို ဒီမှာထည့် */}
-
-              <div className="relative z-10 mt-6">
-                <div
-                  className="
-        h-2
-        bg-glass-hover
-        rounded-full
-        overflow-hidden
-      "
-                >
-                  <motion.div
-                    initial={{
-                      width: 0,
-                    }}
-                    whileInView={{
-                      width: `${skill.level}%`,
-                    }}
-                    viewport={{
-                      once: true,
-                    }}
-                    transition={{
-                      duration: 1.2,
-                      ease: "easeOut",
-                      delay: index * 0.15,
-                    }}
-                    className="
-            h-full
-            bg-accent
-            rounded-full
-          "
-                  />
-                </div>
-
-                <div
-                  className="
-        text-right
-        mt-2
-        text-accent
-        font-semibold
-      "
-                >
-                  {skill.level}%
-                </div>
+              <div className="relative z-10 flex flex-wrap gap-2 mt-4">
+                {skill.items.split(" • ").map((item) => {
+                  const Icon = iconMap[item];
+                  return (
+                    <span
+                      key={item}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-glass border border-subtle text-muted text-sm"
+                    >
+                      {Icon && <Icon className="text-accent" />}
+                      {item}
+                    </span>
+                  );
+                })}
               </div>
+
+
             </motion.div>
           ))}
         </div>

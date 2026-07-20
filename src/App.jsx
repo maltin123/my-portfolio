@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Link, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { ThemeProvider } from "./context/ThemeContext";
 import Navbar from "./components/Navbar";
@@ -8,11 +8,14 @@ import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
 import CursorGlow from "./components/CursorGlow";
 import Loader from "./components/Loader";
 import BackToTop from "./components/BackToTop";
 import ScrollProgress from "./components/ScrollProgress";
+import MobileNav from "./components/MobileNav";
+
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Analytics } from "@vercel/analytics/react";
 import CaseStudy from "./pages/CaseStudy";
@@ -33,9 +36,24 @@ function Home() {
       <About />
       <Skills />
       <Projects />
+      {/* <Testimonials /> */}
       <Contact />
       <Footer />
     </>
+  );
+}
+
+function NotFound() {
+  return (
+    <div className="min-h-screen bg-body flex items-center justify-center text-body px-8">
+      <div className="text-center">
+        <h1 className="text-8xl font-bold text-accent">404</h1>
+        <p className="mt-4 text-xl text-muted">Page not found</p>
+        <Link to="/" className="mt-8 inline-block px-8 py-4 rounded-full bg-accent text-white font-semibold hover:shadow-accent-glow transition-all">
+          Back Home
+        </Link>
+      </div>
+    </div>
   );
 }
 
@@ -55,6 +73,7 @@ function AnimatedRoutes() {
           <Routes location={location}>
             <Route path="/" element={<Home />} />
             <Route path="/case-study/:slug" element={<CaseStudy />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
       </motion.div>
@@ -68,6 +87,7 @@ export default function App() {
       <Loader />
       <CursorGlow />
       <BackToTop />
+      <MobileNav />
       <ScrollProgress />
       <SpeedInsights />
       <Analytics />

@@ -15,7 +15,7 @@ export default function Footer({ simple }) {
   if (simple) {
     return (
       <footer className="border-t border-subtle py-8 px-8 text-center text-muted-2 text-sm">
-        © 2026 Man Sitt. All rights reserved.
+        © {new Date().getFullYear()} Man Sitt. All rights reserved.
       </footer>
     );
   }
@@ -130,7 +130,7 @@ export default function Footer({ simple }) {
         {/* Divider */}
         <div className="mt-8 pt-6 border-t border-subtle text-center">
           <p className="text-muted-2 text-sm text-center">
-            © 2026 MAN. All rights reserved.
+            © {new Date().getFullYear()} MAN. All rights reserved.
           </p>
         </div>
       </motion.div>
