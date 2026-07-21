@@ -160,61 +160,12 @@ export default function CaseStudy() {
         </div>
       </section>
 
-      {/* Hero Image */}
-      <motion.section
-        {...fadeUp}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        className="px-8 pb-20"
-      >
-        <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden border border-subtle shadow-accent-glow">
-          <img
-            src={project.image}
-            alt={project.title}
-            loading="lazy"
-            className="w-full h-auto object-cover"
-          />
-        </div>
-      </motion.section>
-
-      {/* Gallery */}
-      {project.gallery && project.gallery.length > 0 && (
-        <section className="px-8 pb-20">
-          <div className="max-w-5xl mx-auto">
-            <motion.h2
-              {...fadeUp}
-              className="text-accent text-sm uppercase tracking-[6px] mb-8 text-center"
-            >
-              Gallery
-            </motion.h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {project.gallery.map((img, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, duration: 0.5 }}
-                  className="rounded-2xl overflow-hidden border border-subtle"
-                >
-                  <img
-                    src={img}
-                    alt={`${project.title} gallery ${i + 1}`}
-                    loading="lazy"
-                    className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
-                  />
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* In-page nav */}
-      <nav className="sticky top-20 z-30 hidden lg:block float-right ml-8 mb-8 w-48">
+      {/* Sidebar - right edge of viewport */}
+      <nav className="hidden lg:block fixed right-8 top-1/2 -translate-y-1/2 z-40 w-44">
         <div className="bg-glass backdrop-blur-md border border-subtle rounded-xl p-4">
           <p className="text-xs uppercase tracking-widest text-muted-2 mb-3">On this page</p>
           <ul className="space-y-2 text-sm">
-            {["Overview", "The Problem", "The Approach", "The Solution", "Results"].map((s) => (
+            {["Gallery", "Overview", "The Problem", "The Approach", "The Solution", "Results"].map((s) => (
               <li key={s}>
                 <a
                   href={`#${s.toLowerCase().replace(/\s+/g, "-")}`}
@@ -228,10 +179,60 @@ export default function CaseStudy() {
         </div>
       </nav>
 
-      {/* Content */}
-      <section className="max-w-4xl mx-auto px-8 pb-32 space-y-24">
+      <div className="max-w-6xl mx-auto px-8">
+        {/* Hero Image */}
+        <motion.section
+          {...fadeUp}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="pb-20"
+        >
+          <div className="rounded-2xl overflow-hidden border border-subtle shadow-accent-glow">
+            <img
+              src={project.image}
+              alt={project.title}
+              loading="lazy"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        </motion.section>
+
+        {/* Gallery */}
+        {project.gallery && project.gallery.length > 0 && (
+          <section className="pb-20 scroll-mt-24" id="gallery">
+            <div>
+              <motion.h2
+                {...fadeUp}
+                className="text-accent text-sm uppercase tracking-[6px] mb-8 text-center"
+              >
+                Gallery
+              </motion.h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {project.gallery.map((img, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1, duration: 0.5 }}
+                    className="rounded-2xl overflow-hidden border border-subtle"
+                  >
+                    <img
+                      src={img}
+                      alt={`${project.title} gallery ${i + 1}`}
+                      loading="lazy"
+                      className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Content */}
+        <section className="pb-32 space-y-24">
         {/* Overview */}
-        <motion.div {...fadeUp} id="overview">
+        <motion.div {...fadeUp} className="scroll-mt-24" id="overview">
           <h2 className="text-accent text-sm uppercase tracking-[6px] mb-4">
             Overview
           </h2>
@@ -241,7 +242,7 @@ export default function CaseStudy() {
         </motion.div>
 
         {/* Problem */}
-        <motion.div {...fadeUp} id="the-problem">
+        <motion.div {...fadeUp} className="scroll-mt-24" id="the-problem">
           <h2 className="text-accent text-sm uppercase tracking-[6px] mb-4">
             The Problem
           </h2>
@@ -253,7 +254,7 @@ export default function CaseStudy() {
         </motion.div>
 
         {/* Approach */}
-        <motion.div {...fadeUp} id="the-approach">
+        <motion.div {...fadeUp} className="scroll-mt-24" id="the-approach">
           <h2 className="text-accent text-sm uppercase tracking-[6px] mb-4">
             The Approach
           </h2>
@@ -263,7 +264,7 @@ export default function CaseStudy() {
         </motion.div>
 
         {/* Solution */}
-        <motion.div {...fadeUp} id="the-solution">
+        <motion.div {...fadeUp} className="scroll-mt-24" id="the-solution">
           <h2 className="text-accent text-sm uppercase tracking-[6px] mb-4">
             The Solution
           </h2>
@@ -275,7 +276,7 @@ export default function CaseStudy() {
         </motion.div>
 
         {/* Results */}
-        <motion.div {...fadeUp} id="results">
+        <motion.div {...fadeUp} className="scroll-mt-24" id="results">
           <h2 className="text-accent text-sm uppercase tracking-[6px] mb-6">
             Results
           </h2>
@@ -305,6 +306,7 @@ export default function CaseStudy() {
           </Link>
         </motion.div>
       </section>
+      </div>
 
       <Footer simple />
     </div>
