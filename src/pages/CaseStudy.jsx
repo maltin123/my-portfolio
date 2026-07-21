@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import Logo from "../components/Logo";
 import ThemeToggle from "../components/ThemeToggle";
@@ -16,6 +16,9 @@ const fadeUp = {
 export default function CaseStudy() {
   const { slug } = useParams();
   const project = projects.find((p) => p.slug === slug);
+  const others = projects.filter((p) => p.slug !== slug);
+  const [carouselIdx, setCarouselIdx] = useState(0);
+  const carouselProject = others[carouselIdx];
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -86,32 +89,10 @@ export default function CaseStudy() {
           <motion.h1
             {...fadeUp}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-bold leading-tight inline-flex items-center gap-4 justify-between"
+            whileHover={{ scale: 1.02 }}
+            className="text-5xl md:text-7xl font-bold leading-tight transition-colors duration-300"
           >
             {project.title}
-            {project.link && project.link !== "#" && (
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-10 h-10 flex-shrink-0 rounded-xl border border-accent bg-transparent text-accent hover:bg-accent hover:text-[var(--accent-hover-text)] transition-all duration-300"
-                title="Visit website"
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-                  />
-                </svg>
-              </a>
-            )}
           </motion.h1>
           <motion.p
             {...fadeUp}
@@ -155,6 +136,26 @@ export default function CaseStudy() {
                   {project.timeline}
                 </p>
               </div>
+            </motion.div>
+          )}
+
+          {project.link && project.link !== "#" && (
+            <motion.div
+              {...fadeUp}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="mt-10"
+            >
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent text-white font-semibold hover:shadow-accent-glow transition-all hover:scale-105 active:scale-95"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+                Visit Website
+              </a>
             </motion.div>
           )}
         </div>
@@ -292,6 +293,81 @@ export default function CaseStudy() {
               >
                 <p className="text-accent text-lg font-semibold">{result}</p>
               </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Other Case Studies Carousel */}
+        <motion.div {...fadeUp} className="relative text-center">
+          <p className="text-xs uppercase tracking-[4px] text-muted mb-8">
+            More Case Studies
+          </p>
+
+          <div className="flex items-center gap-2 sm:gap-4">
+            <button
+              onClick={() =>
+                setCarouselIdx(
+                  carouselIdx === 0 ? others.length - 1 : carouselIdx - 1
+                )
+              }
+              className="shrink-0 w-12 h-12 rounded-full border border-subtle bg-glass flex items-center justify-center text-foreground/60 hover:text-accent hover:border-accent/50 transition-all hover:scale-105 active:scale-95"
+              aria-label="Previous case study"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </button>
+
+            <div className="flex-1 flex justify-center">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={carouselProject.slug}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Link
+                    to={`/case-study/${carouselProject.slug}`}
+                    className="group inline-flex items-center gap-4"
+                  >
+                    <span className="text-2xl sm:text-4xl font-bold text-foreground group-hover:text-accent transition-colors">
+                      {carouselProject.title}
+                    </span>
+                    <span className="text-2xl sm:text-4xl text-accent group-hover:translate-x-1 transition-transform">
+                      ↗
+                    </span>
+                  </Link>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            <button
+              onClick={() =>
+                setCarouselIdx(
+                  carouselIdx === others.length - 1 ? 0 : carouselIdx + 1
+                )
+              }
+              className="shrink-0 w-12 h-12 rounded-full border border-subtle bg-glass flex items-center justify-center text-foreground/60 hover:text-accent hover:border-accent/50 transition-all hover:scale-105 active:scale-95"
+              aria-label="Next case study"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </button>
+          </div>
+
+          <div className="flex justify-center gap-2 mt-6">
+            {others.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCarouselIdx(i)}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  i === carouselIdx
+                    ? "bg-accent w-6"
+                    : "bg-muted/40 hover:bg-muted/60"
+                }`}
+              />
             ))}
           </div>
         </motion.div>

@@ -197,7 +197,7 @@ export default function About() {
             <div className="space-y-8 mt-10">
               <Counter number={5} label="Years Learning" />
 
-              <Counter number={15} label="Projects Completed" />
+              <Counter number={15} label="Projects Delivered" />
 
               <Counter number={100} label="Happy Clients" />
             </div>
@@ -291,6 +291,62 @@ export default function About() {
             ))}
           </motion.div>
         </div>
+
+        {/* Education Journey */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mt-24"
+        >
+          <p className="text-accent uppercase tracking-[8px] mb-2">
+            Education Journey
+          </p>
+          <div className="relative mt-10 space-y-8 before:absolute before:left-[7px] before:top-2 before:bottom-2 before:w-px before:bg-subtle">
+            {[
+              {
+                year: "2013 - 2019",
+                degree: "Bachelor of Computer Technology (Final Year)",
+                school: "University of Computer Studies Yangon",
+                note: "Had to dropout due to Covid-19 pandemic, and military coup in Myanmar",
+              },
+              {
+                year: "2016 - 2018",
+                degree: "Awaken Entertainment",
+                school: "Graphic and UI Design",
+                note: "Worked as an intern and learned the basics of graphic and UI design, and also worked on some projects for clients.",
+              },
+              {
+                year: "2021 - 2021",
+                degree: "Frontend Developer",
+                school: "Advanced Institute of Mechanics & Technology - AIMT",
+                note: "Learned the basics of frontend development, and also made some projects.",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.15 }}
+                className="relative pl-10"
+              >
+                <div className="absolute left-0 top-1.5 w-[15px] h-[15px] rounded-full border-2 border-accent bg-body" />
+                <span className="text-xs text-accent font-semibold tracking-[3px] uppercase">
+                  {item.year}
+                </span>
+                <h3 className="text-lg font-bold mt-1">{item.degree}</h3>
+                <p className="text-muted text-sm">{item.school}</p>
+                {item.note && (
+                  <p className="text-muted/60 text-xs mt-1">{item.note}</p>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Certificates hidden */}
       </div>
     </section>
   );
