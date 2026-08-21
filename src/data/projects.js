@@ -22,7 +22,7 @@ export const projects = [
       "Mobile-first responsive design",
       "Scalable component-based layout",
     ],
-    link: "https://www.passiongeek.tech/",
+    link: "#",
     role: "UI/UX Designer",
     timeline: "Feb 2025 - Present",
     gallery: [
@@ -55,7 +55,7 @@ export const projects = [
       "Visitor analytics at a glance",
       "Seamless public-private navigation",
     ],
-    link: "https://freshmoe.com/",
+    link: "#",
     role: "UI/UX Designer",
     timeline: "Feb 2025 - Present",
     gallery: [
