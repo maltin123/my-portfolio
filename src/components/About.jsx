@@ -195,7 +195,7 @@ export default function About() {
               design to create meaningful experiences.
             </motion.p>
             <div className="space-y-8 mt-10">
-              <Counter number={5} label="Years Learning" />
+              <Counter number={5} label="Years of Experience" />
 
               <Counter number={15} label="Projects Delivered" />
 
