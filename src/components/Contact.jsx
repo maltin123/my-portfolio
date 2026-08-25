@@ -32,8 +32,9 @@ export default function Contact() {
   overflow-hidden
   min-h-screen
   bg-body
-text-body
+ text-body
    px-8
+  pb-32
   flex
   items-center
   "

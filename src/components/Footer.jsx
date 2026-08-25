@@ -1,4 +1,5 @@
-﻿import { motion } from "framer-motion";
+﻿import { FaViber } from "react-icons/fa";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
 
@@ -92,6 +93,15 @@ export default function Footer({ simple }) {
                     +959-974811616
                   </a>
                 </span>
+              </li>
+              <li>
+                <a
+                  href="viber://chat?number=+959974811616"
+                  className="text-muted text-sm hover:text-accent transition-colors duration-300 inline-flex items-center gap-2"
+                >
+                  <FaViber className="w-4 h-4" />
+                  +959-974811616
+                </a>
               </li>
             </ul>
           </div>
