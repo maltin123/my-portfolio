@@ -66,6 +66,40 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.logos-carousel {
+  cursor: grab;
+}
+
+.logos-carousel:active {
+  cursor: grabbing;
+}
+
+.logos-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.logos-carousel {
+  scrollbar-width: none;
+}
+
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.logos-track {
+  animation: scroll-left 35s linear infinite;
+}
+
+.logos-carousel:hover .logos-track {
+  animation-play-state: paused;
+}
+
 @layer utilities {
   .bg-body { background-color: var(--bg-body); }
   .bg-glass { background-color: var(--bg-glass); }
